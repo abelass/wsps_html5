@@ -1,0 +1,48 @@
+<B_articles>
+<section class="liste articles sommaire">
+	#ANCRE_PAGINATION
+	[(#ID_RUBRIQUE|?{<h2 class="h2 invisible"><:articles_rubrique:></h2>,<h2 class="h2 articles_recents"><:derniers_articles:></h2>})]
+	<ul class="liste-items">
+		<BOUCLE_articles(ARTICLES) {id_rubrique ?} {id_rubrique !IN  (#CONFIG{wsps_html5/cacher_rubrique_articles_recents}|picker_selected{rubrique})} {!par date}{lang} {pagination 5}>
+		[(#TOTAL_BOUCLE|=={1}|oui)
+			
+				<div class="cartouche">
+					[(#LOGO_ARTICLE||image_reduire{200,200})]
+					[<p class="#EDIT{surtitre} surtitre">(#SURTITRE)</p>]
+					<h2 class="h1 #EDIT{titre}">#TITRE</h2>
+					[<p class="#EDIT{soustitre} soustitre">(#SOUSTITRE)</p>]
+
+					<p class="info-publi"><abbr class="published" title="[(#DATE|date_iso)]">[(#DATE|nom_jour) ][(#DATE|affdate)]</abbr>
+					[(#VAL{donnees_auteurs_date}|a_cacher|non)
+						[, <span class="auteurs"><:par_auteur:> (#LESAUTEURS)</span>]
+						]
+						</p>
+						
+			
+				</div>
+				<div class="surlignable">
+					[<div class="#EDIT{chapo} chapo">(#CHAPO|image_reduire{500,0})</div>]
+					[<div class="#EDIT{boite_extra} boite_extra info-publi">(#BOITE_EXTRA|image_reduire{500,0})</div>]
+					[<div class="#EDIT{texte} texte">(#TEXTE|image_reduire{500,0})</div>]
+				</div>
+			
+				[<p class="#EDIT{hyperlien} hyperlien"><:voir_en_ligne:> : <a href="(#URL_SITE)" class="spip_out">[(#NOM_SITE|sinon{[(#URL_SITE|couper{80})]})]</a></p>]
+			
+				[<div class="ps">
+					<h2 class="h2"><:info_ps:></h2>
+					<div class="#EDIT{ps} surlignable">(#PS|image_reduire{500,0})</div>
+				</div>]
+			
+			[(#REM) Gestion du portfolio et des documents ]
+			[(#INCLURE{fond=inclure/documents}{id_article})]
+			
+			]		
+		[(#TOTAL_BOUCLE|>{1}|oui)
+		#INCLURE{fond=inclure/article-resume,id_article}	
+			]	
+		
+		</BOUCLE_articles>
+	</ul>
+	[<p class="pagination">(#PAGINATION)</p>]
+</section>
+</B_articles>

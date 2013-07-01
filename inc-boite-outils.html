@@ -1,0 +1,84 @@
+#CACHE{0}
+[(#REM) squelette de la noisette  boite à outils pour article]
+
+<BOUCLE_article_boite(ARTICLES) {id_article}>
+<h2><:outilsarticle:titre:></h2>
+<ul class='outils'>
+
+[(#CONFIG{outils_article/texte}|?{' ',''})
+<li>
+<img src="#CHEMIN{img_pack/texteplus.png}" alt="fontsizeup" class="textsizeup" /><img src="#CHEMIN{img_pack/textemoins.png}" alt="fontsizedown" class="textsizedown" /><:outilsarticle:taille:>
+</li>
+]
+
+
+[(#CONFIG{outils_article/pdf}|?{' ',''})
+<li>#ARTICLE_PDF{id_article}<:outilsarticle:pdf:></li>
+]
+
+
+[(#CONFIG{outils_article/impression}|?{' ',''})
+<li>
+<a href="#URL_PAGE{imprimer,id_article=#ID_ARTICLE}" title="afficher une version imprimable de cet article" onclick="window.open(this.href,'_blank');return false;">
+<img src='plugins/outils_article/img_pack/printer.png' alt="<:outilsarticle:impression_title:>" title="<:outilsarticle:impression_title:>" />
+<:outilsarticle:impression:></a>
+</li>
+]
+
+[(#CONFIG{outils_article/mail}|?{' ',''})
+<li>
+#ENVIAR_EMAIL**{id_article}
+</li>
+]
+<BOUCLE_rub_rss(RUBRIQUES) {id_rubrique}>
+[(#CONFIG{outils_article/rss}|?{' ',''})
+<li><a rel="alternate" type="application/rss+xml" 
+href="[(#URL_PAGE{backend}|parametre_url{id_rubrique,#ID_RUBRIQUE})]"
+[ title="RSS (#TITRE|texte_backend)"]><img src="#CHEMIN{img_pack/rss_black.png}" alt="suivre la vie du site" title="suivre la vie du site"  /> <:outilsarticle:rss:></a>
+</li>
+]
+</BOUCLE_rub_rss>
+
+<BOUCLE_forum_rss(ARTICLES){id_article}>
+[(#CONFIG{outils_article/rssforum}|?{' ',''})
+<li>
+<a href="[(#PARAMETRES_FORUM|url_rss_forum)]" rel="nofollow"><img src="#CHEMIN{img_pack/feed.gif}" alt="syndiquer le forum" title="syndiquer le forum"/> <:outilsarticle:rssforum:></a>
+</li>
+]
+</BOUCLE_forum_rss>
+
+
+<BOUCLE_auteur_article(AUTEURS){id_article}>
+[(#CONFIG{outils_article/auteur}|?{' ',''})
+<li>
+<a href="#URL_AUTEUR"><img src="#CHEMIN{img_pack/auteur.png}" title="articles du même auteur"> <:outilsarticle:auteur:></a>
+</li>
+]
+</BOUCLE_auteur_article>
+
+[(#CONFIG{outils_article/reagir}|?{' ',''})
+
+[<li><a href="(#PARAMETRES_FORUM|url_reponse_forum)"><img src="#CHEMIN{img_pack/chat.png}"><:outilsarticle:reagir:></a>]
+</li>]
+
+<BOUCLE_compteur_forum(FORUMS){id_article}></BOUCLE_compteur_forum>
+[(#CONFIG{outils_article/compteur}|?{' ',''})
+[<li>(#TOTAL_BOUCLE|accord_pluriel{r&eacute;action})</li>]
+]
+<//B_compteur_forum>
+
+[(#CONFIG{outils_article/note}|?{' ',''})
+<li>#NOTATION</li>
+]
+
+</ul>
+</BOUCLE_article_boite>
+
+
+       
+           
+
+           
+
+        
+

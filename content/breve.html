@@ -1,0 +1,24 @@
+<BOUCLE_content(BREVES) {id_breve}>
+[(#REM) Fil d'Ariane ]
+<nav id="hierarchie"><a href="#URL_SITE_SPIP/" ><:accueil_site:></a><BOUCLE_ariane(RUBRIQUES){id_rubrique}><span class="sep"> &gt; </span><a href="#URL_RUBRIQUE">[(#TITRE|couper{80})]</a></BOUCLE_ariane>[<span class="sep"> &gt; </span><strong class="on">(#TITRE|couper{80})</strong>]</nav>
+
+<article class="content-principal">
+	
+	<header class="cartouche">
+	  [(#LOGO_BREVE|image_reduire{200,200})]
+	  <h1 class="h1 #EDIT{titre}">#TITRE</h1>
+	  <p class="info-publi"><abbr class="published" title="[(#DATE|date_iso)]">[(#DATE|nom_jour) ][(#DATE|affdate)]</abbr></p>
+	</header>
+	
+	[<section class="#EDIT{texte} texte">(#TEXTE)</section>]
+	[<section class="lien"><:voir_en_ligne:> : <a href="(#URL_SITE)" class="spip_out">[(#NOM_SITE|sinon{[(#URL_SITE|couper{80})]})]</a></section>]
+	
+</article>
+
+[<section class="notes"><hr />(#NOTES)</section>]
+
+[(#REM) Forum de la breve
+NB : pour desactiver les forums de breve, supprimez simplement la ligne ci-dessous ]
+<INCLURE{fond=inclure/forum,id_breve,repondre_url=(#PARAMETRES_FORUM|url_reponse_forum),repondre_titre=<:repondre_breve:>} />
+
+</BOUCLE_content>

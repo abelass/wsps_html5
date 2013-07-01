@@ -1,0 +1,24 @@
+<BOUCLE_content(AUTEURS){id_auteur}>
+[(#REM) Fil d'Ariane ]
+<nav id="hierarchie"><a href="#URL_SITE_SPIP/"><:accueil_site:></a><span class="sep"> &gt; </span><span><:info_auteurs:></span>[<span class="sep"> &gt; </span><strong class="on">(#NOM|couper{80})</strong>]</nav>
+
+<article class="content-principal">
+	<section class="vcard">[(#REM) microformat vcard]
+		<header class="cartouche">
+			[(#LOGO_AUTEUR|image_reduire{200,200})]
+			<h1 class="h1 #EDIT{qui} fn">#NOM</h1>
+		</header>
+	
+		[<div class="#EDIT{bio} texte bio">(#BIO)</div>]
+		[<p class="#EDIT{hyperlien} hyperlien"><:voir_en_ligne:> : <a href="(#URL_SITE)" class="url spip_out">[(#NOM_SITE|sinon{[(#URL_SITE|couper{80})]})]</a></p>]
+	</section>[(#REM) / vcard]
+
+	<INCLURE{fond=liste/articles-auteur,id_auteur,env,ajax} />
+
+</article>
+
+[<section class="notes"><hr />(#NOTES)</section>]
+
+#FORMULAIRE_ECRIRE_AUTEUR
+
+</BOUCLE_content>

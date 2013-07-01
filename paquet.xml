@@ -1,0 +1,21 @@
+<paquet
+	prefix="wsps_html5"
+	categorie="squelette"
+	version="1.0.0"
+	etat="test"
+	compatibilite="[3.0.10;3.0.*]"
+	logo="prive/themes/spip/images/wsps_html5-64.png"
+	documentation=""
+>
+	<!--
+		Paquet genere le 2013-07-01 10:12:30
+	-->
+
+	<nom>Web Simple Pack Start html5</nom>
+
+	<auteur lien='http://websimple.be'>Rainer Müller</auteur>
+
+	<licence>GNU/GPL</licence>
+
+
+</paquet>

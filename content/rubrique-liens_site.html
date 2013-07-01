@@ -1,0 +1,33 @@
+<BOUCLE_contenu_rubrique(RUBRIQUES){id_rubrique}{tout}>
+
+[(#REM) Fil d'Ariane ]
+
+<INCLURE{fond=inclure/file_ariane,id_rubrique,titre=#TITRE,id_parent,imprimer}/>
+
+<div class="contenu-principal">
+
+	<div class="cartouche">
+		[(#LOGO_RUBRIQUE||image_reduire{200,200})]
+		<h1 class="h1 #EDIT{titre}">#TITRE</h1>
+	</div>
+	
+	[(#REM) Boite à outils]
+    #SET{texte,#DESCRIPTIF|sinon{#TEXTE|couper{250}}|textebrut}
+    [(#INCLURE{fond=inclure/outils,env,titre,introduction=#GET{texte},url=#URL_RUBRIQUE})]
+	
+	[<div class="#EDIT{texte} chapo">(#TEXTE)</div>]
+</div>
+
+[(#REM) Sites de la rubrique ]
+<B_sites>
+<div class="liste sites">
+	[<p class="pagination">(#PAGINATION)</p>]
+	<ul class="liste-items">
+		<BOUCLE_sites(SITES) {par num nom_site,nom_site}{pagination}>
+			<INCLURE{fond=inclure/site-resume,id_syndic}/>	
+		</BOUCLE_sites>
+	</ul>
+</div>
+</B_sites>
+
+</BOUCLE_contenu_rubrique>

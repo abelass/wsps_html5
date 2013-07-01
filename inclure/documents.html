@@ -1,0 +1,35 @@
+[(#REM) Portfolio : album d'images ]
+<B_documents_portfolio>
+<section class="documents documents_portfolio" id="documents_portfolio">
+	<h2 class="h2"><:medias:info_portfolio:></h2>
+	<BOUCLE_documents_portfolio(DOCUMENTS) {id_article?}{id_rubrique?}{id_produit?}{mode=DOCUMENT}{extension IN png,jpg,gif} {par num titre, date}{doublons}{vu=non}>[
+	<a href="(#FICHIER|image_reduire{1500,*}|extraire_attribut{src})"
+		 type="#MIME_TYPE"
+		 rel="documents_portfolio[-a(#ID_ARTICLE)][-r(#ID_RUBRIQUE)]"
+	[ title="(#TITRE|attribut_html|couper{80})"]>[(#FICHIER
+        |image_passe_partout{#ENV{width,100},#ENV{height,100}}
+        |image_recadre{#ENV{width,100},#ENV{height,100}}
+		|inserer_attribut{class,spip_logos}
+		|inserer_attribut{alt,[(#TITRE|attribut_html|couper{80})]})]</a>
+	]</BOUCLE_documents_portfolio>
+</section>
+</B_documents_portfolio>
+
+
+[(#REM)
+	Liste des autres documents joints
+]
+<B_documents_joints>
+	<section class="liste documents documents_joints">
+	<h2 class="h2"><:titre_documents_joints:></h2>
+	<ul class="liste-items">
+		<BOUCLE_documents_joints(DOCUMENTS) {id_article?}{id_rubrique?} {id_produit ?} {extension !IN gif,jpg,png} {vu=non}{par num titre, date}>[
+		<li class="item">
+			<strong><a href="(#URL_DOCUMENT)" title="<:bouton_telecharger:>" type="#MIME_TYPE">[(#TITRE|sinon{<:info_document:>})]</a></strong>
+			<span class="small">(<span>#TYPE_DOCUMENT[ &ndash; (#TAILLE|taille_en_octets)]</span>)</span>
+			#DESCRIPTIF
+		]</li>
+		</BOUCLE_documents_joints>
+	</ul>
+	</section>
+</B_documents_joints>

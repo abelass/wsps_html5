@@ -1,0 +1,6 @@
+#SET{menu,#CONFIG{wsps_html5/menu_barre_nav}}
+[(#GET{menu}|oui)
+	<INCLURE{fond=barre_nav/#GET{menu},env}/>
+	]
+
+

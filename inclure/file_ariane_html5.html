@@ -1,0 +1,8 @@
+#SET{id_home,#CONFIG{wsps_html5/rubrique_accueil}|picker_selected{rubrique}}
+[(#GET{id_home}|is_array|oui)#SET{id_home,#CONFIG{wsps_html5/rubrique_accueil}|picker_selected{rubrique}|valeur_tableau{0}}]
+
+<BOUCLE_imprimer(CONDITION){si #IMPRIMER|non}>	
+	[(#ID_RUBRIQUE|=={#GET{id_home}}|oui)#SET{home,oui}]
+	<nav id="hierarchie">[(#GET{home}|non)<a href="#URL_SITE_SPIP/"><:accueil_site:></a>]<BOUCLE_ariane(HIERARCHIE){id_rubrique}><span class="sep"> &gt; </span><a href="#URL_RUBRIQUE">[(#TITRE|couper{80})]</a></BOUCLE_ariane>[[(#GET{home}|non)<span class="sep"> &gt; </span>]<strong class="on">(#TITRE|couper{80})</strong>]</nav>
+</BOUCLE_imprimer>
+

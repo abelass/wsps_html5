@@ -1,0 +1,49 @@
+<BOUCLE_contenu_rubrique(RUBRIQUES){id_rubrique}{tout}>
+[(#REM) Fil d'Ariane ]
+
+<INCLURE{fond=inclure/file_ariane,id_rubrique,titre=#TITRE,id_trad,id_parent,imprimer}/>
+
+<div class="contenu-principal">
+
+	<div class="cartouche">
+		[(#LOGO_RUBRIQUE||image_reduire{200,200})]
+		<h1 class="h1 #EDIT{titre}">#TITRE</h1>
+	</div>
+	
+	[(#REM) Boite à outils]
+    #SET{texte,#DESCRIPTIF|sinon{#TEXTE|couper{250}}|textebrut}
+    [(#INCLURE{fond=inclure/outils,env,titre,introduction=#GET{texte},url=#URL_RUBRIQUE})]
+	
+	[<div class="#EDIT{texte} chapo">(#TEXTE)</div>]
+</div>
+
+
+[(#REM) Affiche un plan de la rubrique ]
+	<B_sous_rubriques>
+	<div class="menu rubriques">
+		<h2 class="h2"><:sous_rubriques:></h2>
+		<ul class="menu-items menu-liste">
+			<BOUCLE_sous_rubriques(RUBRIQUES) {tout}{id_parent} {par num titre, titre}>
+			<li class="menu-entree">
+				<a href="#URL_RUBRIQUE">[(#TITRE)]</a>
+
+				[(#REM) Une boucle recursive pour le mini plan]
+				<B_miniplan>
+				<ul class="menu-liste">
+					<BOUCLE_miniplan(RUBRIQUES) {id_parent} {tout}{par num titre, titre}>
+					<li class="menu-entree">
+						<a href="#URL_RUBRIQUE">[(#TITRE)]</a>
+						<BOUCLE_m2(BOUCLE_miniplan)></BOUCLE_m2>
+					</li>
+					</BOUCLE_miniplan>
+				</ul>
+				</B_miniplan>
+
+			</li>
+			</BOUCLE_sous_rubriques>
+		</ul>
+		</div>
+	</B_sous_rubriques>
+</BOUCLE_contenu_rubrique>
+
+

@@ -1,0 +1,14 @@
+[(#REM) Fil d'Ariane ]
+<nav id="hierarchie"><a href="#URL_SITE_SPIP/"><:accueil_site:></a><span class="sep"> &gt; </span><span><:info_rechercher:></span>[<span class="sep"> &gt; </span><strong class="on">(#RECHERCHE)</strong>]</nav>
+
+<article class="content-principal">
+	[<header class="cartouche">
+		<h1 class="h1"><:resultats_recherche:></h1>
+		<p class="soustitre">&#171;&nbsp;(#RECHERCHE)&nbsp;&#187;</p>
+	</header>]
+
+	<INCLURE{fond=liste/articles-recherche,env,ajax} />
+
+	<INCLURE{fond=liste/rubriques-recherche,env,ajax} />
+
+</article>

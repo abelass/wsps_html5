@@ -1,0 +1,46 @@
+<BOUCLE_content(ARTICLES){id_article}>
+[(#REM) Fil d'Ariane ]
+<nav id="hierarchie"><a href="#URL_SITE_SPIP/"><:accueil_site:></a><BOUCLE_ariane(HIERARCHIE){id_article}><span class="sep"> &gt; </span><a href="#URL_RUBRIQUE">[(#TITRE|couper{80})]</a></BOUCLE_ariane>[<span class="sep"> &gt; </span><strong class="on">(#TITRE|couper{80})</strong>]</nav>
+
+<article class="content-principal">
+	<header class="cartouche">
+		[(#LOGO_ARTICLE|image_reduire{200,200})]
+		[<p class="#EDIT{surtitre} surtitre">(#SURTITRE)</p>]
+		<h1 class="h1 #EDIT{titre}">#TITRE</h1>
+		[<p class="#EDIT{soustitre} soustitre">(#SOUSTITRE)</p>]
+
+		<p class="info-publi">
+		    [(#VAL{donnees_date}|a_cacher|non)<abbr class="published" title="[(#DATE|date_iso)]">[(#DATE|nom_jour) ][(#DATE|affdate)]</abbr>]
+		    [(#VAL{donnees_auteurs}|a_cacher|non)[<span class="sep">, </span><span class="auteurs"><:par_auteur:> (#LESAUTEURS)</span>]]
+		</p>
+	</header>
+    [(#REM) Boite à outils]
+    
+    [(#INCLURE{fond=inclure/outils,env,titre,introduction=[(#INTRODUCTION|textebrut)],url=#URL_ARTICLE})]
+	[<section class="#EDIT{chapo} chapo surlignable">(#CHAPO|image_reduire{500,0})</section>]
+	[<section class="#EDIT{texte} texte surlignable">(#TEXTE|image_reduire{500,0})</section>]
+	[<section class="#EDIT{hyperlien} hyperlien"><:voir_en_ligne:> : <a href="(#URL_SITE)" class="spip_out">[(#NOM_SITE|sinon{[(#URL_SITE|couper{80})]})]</a></section>]
+	[<section class="#EDIT{ps} ps surlignable"><h2><:info_ps:></h2>(#PS|image_reduire{500,0})</section>]
+
+	[(#REM) Gestion du portfolio et des documents ]
+	[(#INCLURE{fond=inclure/documents,id_article})]
+	
+	<footer>
+		[<aside class="notes"><h2><:info_notes:></h2>(#NOTES)</aside>]
+		[(#REM) inclure de partage RS ]
+		[(#REM) bloc precedent/suivant en guise de <nav></nav> ]
+	</footer>
+</article>
+
+[(#REM) Petition :
+La petition ayant une PAGINATION il faut absolument {env}
+et pourquoi pas ajax
+][(#PETITION|oui)<INCLURE{fond=inclure/petition,id_article,env,ajax} />]
+
+
+
+[(#REM) Forum de l'article
+NB : pour desactiver les forums de l'article, supprimez simplement la ligne ci-dessous ]
+<INCLURE{fond=inclure/forum,id_article,repondre_url=(#PARAMETRES_FORUM|url_reponse_forum),repondre_titre=<:repondre_article:>} />
+
+</BOUCLE_content>

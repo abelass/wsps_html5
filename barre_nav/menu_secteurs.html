@@ -1,0 +1,11 @@
+<B_rubriques>
+<div class=" menu-conteneur">
+  <ul class="menu-liste menu-items">
+	 <BOUCLE_rubriques(RUBRIQUES) {racine} {par num titre, titre}{tout}>
+		<li class="item menu-entree[ (#EXPOSE)]">
+			<a href="#URL_RUBRIQUE">[(#TITRE|couper{80})]</a>
+		</li>
+	 </BOUCLE_rubriques>
+	 </ul>
+</div>	
+</B_rubriques>

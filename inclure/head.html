@@ -1,0 +1,66 @@
+[(#REM) Preciser le charset ]
+<meta http-equiv="Content-Type" content="text/html; charset=#CHARSET" />
+
+[(#REM) Fierement fabrique avec SPIP ]
+<meta name="generator" content="SPIP[ (#SPIP_VERSION)]" />
+
+[(#REM) Mobile viewport optimized: h5bp.com/viewport ]
+<meta name="viewport" content="width=device-width">
+
+[(#REM) Lien vers le flux RSS du site ]
+[<link rel="alternate" type="application/rss+xml" title="<:syndiquer_site:>" href="(#URL_PAGE{backend})" />]
+
+
+[<link rel="stylesheet" href="(#CSS{css/reset.css})" type="text/css" />]
+[<link rel="stylesheet" href="(#CSS{css/font.css})" type="text/css" />]
+[<link rel="stylesheet" href="(#CSS{css/typo.css})" type="text/css" />]
+[<link rel="stylesheet" href="(#CSS{css/box.css})" type="text/css" />]
+[<link rel="stylesheet" href="(#CSS{css/box_skins.css})" type="text/css" />]
+[<link rel="stylesheet" href="(#CSS{css/form.css})" type="text/css" />]
+
+[(#REM) Balise permettant aux plugins d'inserer des fichiers CSS ]
+#INSERT_HEAD_CSS
+
+[<link rel="stylesheet" href="(#CSS{css/spip.css})" type="text/css" />]
+[<link rel="stylesheet" href="(#CSS{css/spip.form.css})" type="text/css" />]
+[<link rel="stylesheet" href="(#CSS{css/spip.comment.css})" type="text/css" />]
+[<link rel="stylesheet" href="(#CSS{css/spip.list.css})" type="text/css" />]
+[<link rel="stylesheet" href="(#CSS{css/spip.petition.css})" type="text/css" />]
+[<link rel="stylesheet" href="(#CSS{css/spip.pagination.css})" type="text/css" />]
+[<link rel="stylesheet" href="(#CSS{css/spip.portfolio.css})" type="text/css" />]
+[<link rel="stylesheet" href="(#CSS{css/clear.css})" type="text/css" />]
+[<link rel="stylesheet" href="(#CSS{css/grid.css})" type="text/css" />]
+[<link rel="stylesheet" href="(#CSS{css/button.css})" type="text/css" />]
+[<link rel="stylesheet" href="(#CSS{css/layout.css})" type="text/css" />]
+
+
+[(#REM) Feuille de style du theme ]
+[<link rel="stylesheet" href="(#CSS{css/theme.css})" type="text/css" />]
+
+[(#REM) Feuille de style CSS pour l'impression, n'existe pas par defaut ]
+[<link rel="stylesheet" href="(#CSS{css/print.css})" type="text/css" media="print" />]
+
+[(#CHEMIN{inc-theme-head.html}|oui)
+#INCLURE{fond=inc-theme-head,env}
+]
+
+[(#REM) Balise permettant aux plugins d'inserer des appels javascript ou css ;
+	C'est ici que SPIP va inserer l'appel de la librairie jQuery
+	Et appeler a la fin compacte_head pour agreger et compacter tout le head dans des fichiers statiques
+	si l'option est cochee dans Configuration
+]
+#INSERT_HEAD
+
+[(#REM) Feuille de style personnalisee pour surcharger les precedentes
+	A noter par defaut cette css n'existe pas
+]
+[<link rel="stylesheet" href="(#CSS{css/perso.css})" type="text/css" />]
+
+[(#REM) Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons ]
+[<link rel="icon" type="image/x-icon" href="(#CHEMIN{favicon.ico})" />
+[<link rel="shortcut icon" type="image/x-icon" href="(#CHEMIN{favicon.ico})" />]]
+
+<!--[if IE]>
+    <script src="#CHEMIN{scripts/html5-ie.js}"></script>
+<![endif]-->
+

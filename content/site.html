@@ -1,0 +1,20 @@
+<BOUCLE_content(SITES){id_syndic}>
+[(#REM) Fil d'Ariane ]
+<nav id="hierarchie"><a href="#URL_SITE_SPIP/"><:accueil_site:></a><BOUCLE_ariane(HIERARCHIE){id_syndic}><span class="sep"> &gt; </span><a href="#URL_RUBRIQUE">[(#TITRE|couper{80})]</a></BOUCLE_ariane>[<span class="sep"> &gt; </span><strong class="on">(#NOM_SITE|couper{80})</strong>]</nav>
+
+<article class="content-principal">
+
+  <header class="cartouche">
+      <a href="#URL_SITE">[(#LOGO_SITE|image_reduire{150,100})]</a>
+      <h1 class="h1 #EDIT{nom_site}">#NOM_SITE</h1>
+  </header>
+
+  [<section class="#EDIT{descriptif} chapo">(#DESCRIPTIF)</section>]
+  [<section class="#EDIT{url_site} hyperlien"><a href="#URL_SITE" class="spip_out">(#URL_SITE|couper{80})</a></section>]
+</article>
+
+<INCLURE{fond=liste/syndicarticles,id_syndic,env,ajax} />
+
+
+[<section class="notes"><hr />(#NOTES)</section>]
+</BOUCLE_content>

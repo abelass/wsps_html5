@@ -1,0 +1,21 @@
+<BOUCLE_contenu_rubrique(RUBRIQUES){id_rubrique}{tout}>
+[(#REM) Fil d'Ariane ]
+
+[(#ID_RUBRIQUE|=={1}|oui)#SET{home,oui}]
+<p id="hierarchie">[(#GET{home}|non)<a href="#URL_SITE_SPIP/"><:accueil_site:></a>]<BOUCLE_ariane(HIERARCHIE){id_rubrique}> &gt; <a href="#URL_RUBRIQUE">[(#TITRE|couper{80})]</a></BOUCLE_ariane>[[(#GET{home}|non) &gt; ]<strong class="on">(#TITRE|couper{80})</strong>]</p>
+
+<div class="contenu-principal">
+
+	<div class="cartouche">
+		[(#LOGO_RUBRIQUE||image_reduire{200,200})]
+		<h1 class="h1 #EDIT{titre}">#TITRE</h1>
+		 [(#VAL{donnees_date}|a_cacher|non)<abbr class="published" title="[(#DATE|date_iso)]">[(#DATE|nom_jour) ][(#DATE|affdate)]</abbr>[<span class="sep">, </span>]
+	</div>
+
+	[<div class="#EDIT{texte} chapo">(#TEXTE)</div>]
+</div>
+
+<BOUCLE_auteur(AUTEURS){id_auteur}{statut=0minirezo}{tout}{1,1}>
+	#FORMULAIRE_ECRIRE_AUTEUR
+</BOUCLE_auteur>
+</BOUCLE_contenu_rubrique>
