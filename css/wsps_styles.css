@@ -21,9 +21,6 @@
 
 #pagination_ev{display:none;}
 
-/* suivant les themes dÃ©sactive les sÃ©parateurs de la pagination*/
-span.sep{display:none;}
-
 
 #contenu .socialtags ul li {
     background: none repeat scroll 0 0 transparent;
