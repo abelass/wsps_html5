@@ -1,7 +1,7 @@
 <BOUCLE_nav(RUBRIQUES) {racine} {par num titre, titre}{!par date}{tout}{lang}>
     <B_enfants>
-        <div class="menu-conteneur">
-        <ul class="menu-liste menu-items">
+        <div class="menu menu-container navbar-inner">
+        <ul class="menu-items menu-liste nav">
         <BOUCLE_enfants(RUBRIQUES){id_parent} {par num titre, titre}{tout}>
         <li class="item menu-entree[ (#EXPOSE)]">
             <a href="#URL_RUBRIQUE">[(#TITRE|couper{80})]</a>
