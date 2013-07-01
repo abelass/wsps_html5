@@ -40,6 +40,7 @@ div.socialtags {
 }
 
 #outils {
+	clear:both;
 	float:right;
 	width :75px;
 	border: 1px dashed  #e5e5e5;

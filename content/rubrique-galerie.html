@@ -1,46 +1,43 @@
 <BOUCLE_contenu_rubrique(RUBRIQUES){id_rubrique}{tout}>
-[(#REM) Fil d'Ariane ]
+<section>
 
-<INCLURE{fond=inclure/file_ariane,id_rubrique,titre=#TITRE,id_trad,id_parent,imprimer,imprimer}/>
-
-<article class="contenu-principal">
-
-	<div class="cartouche">
-		[(#LOGO_RUBRIQUE||image_reduire{200,200})]
-		<h1 class="h1 #EDIT{titre}">#TITRE</h1>
-	</div>
+    <header class="cartouche">
+        [(#LOGO_RUBRIQUE||image_reduire{200,200})]
+        <h1 class="h1 #EDIT{titre}">#TITRE</h1>
+    </header>
+    <div class="main">      
 
 	[<div class="#EDIT{texte} chapo">(#TEXTE)</div>]
-</article>
 
 
-[(#REM) Portfolio : album d'images ]
+    [(#REM) Portfolio : album d'images ]
+    
+    <B_articles>
+        <aside class="bloc clearfix" id="documents_album">
+        <ul>
+        <BOUCLE_articles(ARTICLES){id_rubrique}{pagination 9}>#SET{titre,#TITRE}
+        <B_documents_portfolio2>
+            <BOUCLE_documents_portfolio2(DOCUMENTS) {id_article} {mode ?}{extension IN png,jpg,gif} {par hasard}{doublons}{tout}{0,1}>
+            <li[(#COMPTEUR_BOUCLE|modulo{4}|=={0}|oui) class="clear"]>
+                <a href="#URL_ARTICLE" [ title="(#GET{titre}|attribut_html|couper{80})"]>
+                [<h3 class="mouseover_cache">(#GET{titre})</h3>]
+                [(#FICHIER
+                |image_passe_partout{160,160}
+                |image_recadre{160,160}
+                |inserer_attribut{class,spip_logos mouseover_visible}
+                |inserer_attribut{alt,[(#TITRE|attribut_html|couper{80})]})]        
+                </a>
+            </li>
+            </BOUCLE_documents_portfolio2>
+        </B_documents_portfolio2>
+        </BOUCLE_articles>
+        </ul>
+        [<p class="pagination">(#PAGINATION)</p>]
+    </div><!--#documents_album-->
+    </B_articles>
+    </aside><!--#documents_album-->
+    </B_articles>
+    </div>
+</section>
 
-<B_articles>
-    <aside class="bloc clearfix" id="documents_album">
-    <ul>
-    <BOUCLE_articles(ARTICLES){id_rubrique}{pagination 9}>#SET{titre,#TITRE}
-    <B_documents_portfolio2>
-        <BOUCLE_documents_portfolio2(DOCUMENTS) {id_article} {mode ?}{extension IN png,jpg,gif} {par hasard}{doublons}{tout}{0,1}>
-        <li[(#COMPTEUR_BOUCLE|modulo{4}|=={0}|oui) class="clear"]>
-            <a href="#URL_ARTICLE" [ title="(#GET{titre}|attribut_html|couper{80})"]>
-            [<h3 class="mouseover_cache">(#GET{titre})</h3>]
-            [(#FICHIER
-            |image_passe_partout{160,160}
-            |image_recadre{160,160}
-            |inserer_attribut{class,spip_logos mouseover_visible}
-            |inserer_attribut{alt,[(#TITRE|attribut_html|couper{80})]})]        
-            </a>
-        </li>
-        </BOUCLE_documents_portfolio2>
-    </B_documents_portfolio2>
-    </BOUCLE_articles>
-    </ul>
-    [<p class="pagination">(#PAGINATION)</p>]
-</div><!--#documents_album-->
-</B_articles>
-
-</aside><!--#documents_album-->
-</B_articles>
-<br class="nettoyeur"/>
 </BOUCLE_contenu_rubrique>

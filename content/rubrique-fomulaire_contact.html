@@ -1,22 +1,14 @@
 <BOUCLE_contenu_rubrique(RUBRIQUES){id_rubrique}{tout}>
-[(#REM) Fil d'Ariane ]
-
-<INCLURE{fond=inclure/file_ariane,id_rubrique,titre=#TITRE,id_trad,imprimer}/>
-
-<article class="contenu-principal">
-
+<section>
 	<header class="cartouche">
 		[(#LOGO_RUBRIQUE||image_reduire{200,200})]
 		<h1 class="h1 #EDIT{titre}">#TITRE</h1>
 	</header>
-
-	
+    <div class="main">      	
 	[<div class="#EDIT{texte} chapo">(#TEXTE)</div>]
-</article>
-<BOUCLE_auteur(AUTEURS){statut=0minirezo}{tout}{1,1}>
-	#FORMULAIRE_ECRIRE_AUTEUR
-</BOUCLE_auteur>
-
+    <BOUCLE_auteur(AUTEURS){statut=0minirezo}{tout}{1,1}>
+    	#FORMULAIRE_ECRIRE_AUTEUR
+    </BOUCLE_auteur>
+	</div>
+</section>
 </BOUCLE_contenu_rubrique>
-
-

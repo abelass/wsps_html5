@@ -9,7 +9,7 @@ if (!defined('_ECRIRE_INC_VERSION')) return;
 
 // La feuille de style
 function wsps_html5_insert_head($flux){
-    $flux .= '<link rel="stylesheet" href="'.find_in_path('css/mc_styles.css').'" type="text/css" media="all" />';
+    $flux .= '<link rel="stylesheet" href="'.find_in_path('css/wsps_styles.css').'" type="text/css" media="all" />';
     return $flux;
 }
 

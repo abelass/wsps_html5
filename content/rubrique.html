@@ -1,103 +1,97 @@
-<BOUCLE_contenu_rubrique(RUBRIQUES){id_rubrique}{tout}>
-[(#REM) Fil d'Ariane ]
+<BOUCLE_content(RUBRIQUES){id_rubrique}>
+<section>
 
-[(#ID_RUBRIQUE|=={1}|oui)#SET{home,oui}]
-<INCLURE{fond=inclure/file_ariane,id_rubrique,titre=#TITRE,id_parent}/>
+    <header class="cartouche">
+        [(#LOGO_RUBRIQUE|image_reduire{200,200})]
+        <h1 class="#EDIT{titre}">#TITRE</h1>
+    </header>
 
-<article class="contenu-principal">
+    <div class="main">
+    [(#REM) Boite à outils]
+    [(#INCLURE{fond=inclure/outils,env})]        
+        [<div class="#EDIT{texte} chapo">(#TEXTE)</div>]
+        <B_articles>
+        <br class="nettoyeur"/>
+        <BOUCLE_articles(ARTICLES){id_rubrique}{0,1}>
+            <div class="liste articles">
+            <INCLURE{fond=liste/articles-resume,env,ajax,titre=<:articles_rubrique:>} />
+            </div>
+        </BOUCLE_articles>
 
-	<header class="cartouche">
-		[(#LOGO_RUBRIQUE||image_reduire{200,200})]
-		<h1 class="h1 #EDIT{titre}">#TITRE</h1>
-	</header>
-	
-	[(#REM) Boite à outils]
-	[(#INCLURE{fond=inclure/outils,env})]
-	
-	[<div class="#EDIT{texte} chapo">(#TEXTE)</div>]
-</articles>
+        [(#REM) Si aucun article, affiche un plan de la rubrique ]
+        <B_sous_rubriques>
+        <div class="menu rubriques">
+            <h2 class="h2"><:sous_rubriques:></h2>
+            <ul class="menu-items menu-liste">
+                <BOUCLE_sous_rubriques(RUBRIQUES) {id_parent} {par num titre, titre}>
+                <li class="item menu-entree">
+                    <a href="#URL_RUBRIQUE">[(#TITRE)]</a>
 
-<B_articles>
-<nav class="liste articles">
-	#ANCRE_PAGINATION
-	<h2 class="h2"><:articles_rubrique:></h2>
-	<ul class="liste-items">
-		<BOUCLE_articles(ARTICLES){id_rubrique} {!par date} {pagination 5}>
-		#INCLURE{fond=inclure/article-resume,id_article}
-		</BOUCLE_articles>
-	</ul>
-	[<p class="pagination">(#PAGINATION)</p>]
-</nav>
-</B_articles>
+                    [(#REM) Une boucle recursive pour le mini plan]
+                    <B_miniplan>
+                    <ul class="menu-items menu-liste">
+                        <BOUCLE_miniplan(RUBRIQUES) {id_parent} {par num titre, titre}>
+                        <li class="item menu-entree">
+                            <a href="#URL_RUBRIQUE">[(#TITRE)]</a>
+                            <BOUCLE_m2(BOUCLE_miniplan)></BOUCLE_m2>
+                        </li>
+                        </BOUCLE_miniplan>
+                    </ul>
+                    </B_miniplan>
 
-	[(#REM) Si aucun article, affiche un plan de la rubrique ]
-	<B_sous_rubriques>
-	<nav class="menu rubriques">
-		<h2 class="h2"><:sous_rubriques:></h2>
-		<ul class="menu-liste">
-			<BOUCLE_sous_rubriques(RUBRIQUES) {id_parent} {par num titre, titre}>
-			<li class="menu-entree">
-				<a href="#URL_RUBRIQUE">[(#TITRE)]</a>
+                </li>
+                </BOUCLE_sous_rubriques>
+            </ul>
+            </div>
+        </B_sous_rubriques>
+    <//B_articles>
+    </div>
 
-				[(#REM) Une boucle recursive pour le mini plan]
-				<B_miniplan>
-				<ul class="menu-liste">
-					<BOUCLE_miniplan(RUBRIQUES) {id_parent} {par num titre, titre}>
-					<li class="menu-entree">
-						<a href="#URL_RUBRIQUE">[(#TITRE)]</a>
-						<BOUCLE_m2(BOUCLE_miniplan)></BOUCLE_m2>
-					</li>
-					</BOUCLE_miniplan>
-				</ul>
-				</B_miniplan>
+    <aside>
+        [(#REM) Gestion du portfolio et des documents ]
+        [(#INCLURE{fond=inclure/documents,id_rubrique})]
 
-			</li>
-			</BOUCLE_sous_rubriques>
-		</ul>
-		</nav>
-	</B_sous_rubriques>
-<//B_articles>
+        [(#REM) Breves du secteur ]
+            <B_breves>
+            <div class="liste breves">
+                    #ANCRE_PAGINATION
+                    <h2 class="h2"><:breves:breves:></h2>
+                    <ul class="liste-items">
+                            <BOUCLE_breves(BREVES) {id_rubrique} {par date}{inverse} {pagination 5}>
+                            <li class="item short">#INCLURE{fond=inclure/resume/breve,id_breve}</li>
+                            </BOUCLE_breves>
+                    </ul>
+                    [<div class="pagination">(#PAGINATION)</div>]
+            </div>
+            </B_breves>
 
-[(#REM) Gestion du portfolio et des documents ]
-[(#INCLURE{fond=inclure/documents}{id_rubrique})]	
+            [(#REM) Sites de la rubrique ]
+            <B_sites>
+            <div class="liste sites">
+                    <h2 class="h2"><:sur_web:></h2>
+                    <ul class="liste-items">
+                            <BOUCLE_sites(SITES) {id_rubrique} {par nom_site}>
+                            <li class="item short">#INCLURE{fond=inclure/resume/site,id_syndic}
+                                    <B_syndic>
+                                    <ul class="spip">
+                                            <BOUCLE_syndic(SYNDIC_ARTICLES) {id_syndic} {age<180} {par date}{inverse} {0,3}>
+                                            <li class="short with-publication-inline">#INCLURE{fond=inclure/resume/syndic_article,id_syndic_article}</li>
+                                            </BOUCLE_syndic>
+                                    </ul>
+                                    </B_syndic>
+                            </li>
+                            </BOUCLE_sites>
+                    </ul>
+            </div>
+            </B_sites>
 
-[(#REM) Breves du secteur ]
-<B_breves>
-<aside class="liste breves">
-		#ANCRE_PAGINATION
-		<h2 class="h2"><:breves:></h2>
-		<ul class="liste-items">
-				<BOUCLE_breves(BREVES) {id_rubrique} {par date}{inverse} {pagination 5}>
-				<li class="item">[(#DATE|affdate_jourcourt) &ndash; ]<a href="#URL_BREVE">#TITRE</a></li>
-				</BOUCLE_breves>
-		</ul>
-		[<p class="pagination">(#PAGINATION)</p>]
-</aside>
-</B_breves>
+        [(#REM) Proposer un site ]
+        #FORMULAIRE_SITE
+    </aside>
 
-[(#REM) Sites de la rubrique ]
-<B_sites>
-<aside class="liste sites">
-		<h2 class="h2"><:sur_web:></h2>
-		<ul class="liste-items">
-				<BOUCLE_sites(SITES) {id_rubrique} {par nom_site}>
-				<li class="item">
-	<a href="[(#ID_SYNDIC|generer_url_entite{site,'','',#CONNECT})]">#NOM_SITE</a>
-						<B_syndic>
-						<ul>
-								<BOUCLE_syndic(SYNDIC_ARTICLES) {id_syndic} {age<180} {par date}{inverse} {0,3}>
-								<li><a href="#URL_ARTICLE" class="spip_out">#TITRE</a></li>
-								</BOUCLE_syndic>
-						</ul>
-						</B_syndic>
-				</li>
-				</BOUCLE_sites>
-		</ul>
-</aside>
-</B_sites>
+    <footer>
+        [<div class="notes"><h2><:info_notes:></h2>(#NOTES)</div>]
+    </footer>
 
-[(#REM) Proposer un site ]
-#FORMULAIRE_SITE
-
-[<div class="notes"><h2 class="h2"><:info_notes:></h2>(#NOTES)</div>]
-</BOUCLE_contenu_rubrique>
+</section>
+</BOUCLE_content>

@@ -1,33 +1,51 @@
-<BOUCLE_contenu_rubrique(RUBRIQUES){id_rubrique}{tout}>
+<BOUCLE_content(RUBRIQUES){id_rubrique}>
+<section>
 
-[(#REM) Fil d'Ariane ]
+    <header class="cartouche">
+        [(#LOGO_RUBRIQUE|image_reduire{200,200})]
+        <h1 class="#EDIT{titre}">#TITRE</h1>
+    </header>
 
-<INCLURE{fond=inclure/file_ariane,id_rubrique,titre=#TITRE,id_parent,imprimer}/>
+    <div class="main">
+    [(#REM) Boite à outils]
+    [(#INCLURE{fond=inclure/outils,env})]        
+        [<div class="#EDIT{texte} chapo">(#TEXTE)</div>]
+        <B_articles>
+        <br class="nettoyeur"/>
+        <BOUCLE_articles(ARTICLES){id_rubrique}{0,1}>
+            <div class="liste articles">
+            <INCLURE{fond=liste/articles-resume,env,ajax,titre=<:articles_rubrique:>} />
+            </div>
+        </BOUCLE_articles>
 
-<div class="contenu-principal">
+    <aside>
+            [(#REM) Sites de la rubrique ]
+            <B_sites>
+            <div class="liste sites">
+                    <h2 class="h2"><:sur_web:></h2>
+                    <ul class="liste-items">
+                            <BOUCLE_sites(SITES) {id_rubrique} {par num nom_site, multi nom_site}>
+                            <li class="item short">#INCLURE{fond=inclure/resume/site,id_syndic}
+                                    <B_syndic>
+                                    <ul class="spip">
+                                            <BOUCLE_syndic(SYNDIC_ARTICLES) {id_syndic} {age<180} {par date}{inverse} {0,3}>
+                                            <li class="short with-publication-inline">#INCLURE{fond=inclure/resume/syndic_article,id_syndic_article}</li>
+                                            </BOUCLE_syndic>
+                                    </ul>
+                                    </B_syndic>
+                            </li>
+                            </BOUCLE_sites>
+                    </ul>
+            </div>
+            </B_sites>
 
-	<div class="cartouche">
-		[(#LOGO_RUBRIQUE||image_reduire{200,200})]
-		<h1 class="h1 #EDIT{titre}">#TITRE</h1>
-	</div>
-	
-	[(#REM) Boite à outils]
-    #SET{texte,#DESCRIPTIF|sinon{#TEXTE|couper{250}}|textebrut}
-    [(#INCLURE{fond=inclure/outils,env,titre,introduction=#GET{texte},url=#URL_RUBRIQUE})]
-	
-	[<div class="#EDIT{texte} chapo">(#TEXTE)</div>]
-</div>
+        [(#REM) Proposer un site ]
+        #FORMULAIRE_SITE
+    </aside>
 
-[(#REM) Sites de la rubrique ]
-<B_sites>
-<div class="liste sites">
-	[<p class="pagination">(#PAGINATION)</p>]
-	<ul class="liste-items">
-		<BOUCLE_sites(SITES) {id_rubrique} {par num nom_site,nom_site} {pagination}>
-			<INCLURE{fond=inclure/site-resume,id_syndic}/>	
-		</BOUCLE_sites>
-	</ul>
-</div>
-</B_sites>
-
-</BOUCLE_contenu_rubrique>
+    <footer>
+        [<div class="notes"><h2><:info_notes:></h2>(#NOTES)</div>]
+    </footer>
+    
+</section>
+</BOUCLE_content>

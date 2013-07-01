@@ -1,21 +1,16 @@
 <BOUCLE_contenu_rubrique(RUBRIQUES){id_rubrique}{tout}>
-
-[(#REM) Fil d'Ariane ]
-
-<INCLURE{fond=inclure/file_ariane,id_rubrique,titre=#TITRE,id_parent,imprimer}/>
-
-<article class="contenu-principal">
+<section>
 
 	<header class="cartouche">
 		[(#LOGO_RUBRIQUE||image_reduire{200,200})]
 		<h1 class="h1 #EDIT{titre}">#TITRE</h1>
 	</header>
-	
+    <div class="main">  	
 	[(#REM) Boite à outils]
 	[(#INCLURE{fond=inclure/outils,env,classe=absolute})]
 	[<div class="#EDIT{texte} chapo">(#TEXTE)</div>]
-</article>
-[(#CONFIG{wsps_html5/affichage_clever_articles_recent}|oui)#SET{clever,_clever}]
-<INCLURE{fond=inclure/articles_recents#GET{clever},id_rubrique='',env,ajax,id_parent,rubriques_exclus=''}/>
-
+    [(#CONFIG{wsps_html5/affichage_clever_articles_recent}|oui)#SET{clever,_clever}]
+    <INCLURE{fond=inclure/articles_recents#GET{clever},id_rubrique='',env,ajax,id_parent,rubriques_exclus=''}/>
+    </div>
+</section>
 </BOUCLE_contenu_rubrique>
