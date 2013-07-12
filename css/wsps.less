@@ -1,6 +1,15 @@
 @import "css/variables.less";
 @import "css/mixins.less";
 
+
+/*Menu traductions*/
+ul.traductions{list-style:none;text-align:right}
+
+.traductions li{display:inline;}
+
+.traductions li:not(:last-child){border-right:#BFBFBF 2px solid;padding-right:2px;margin-right:2px}
+.traductions li:last-child {content:""}
+
 #documents_album {
    width:100%;
    height:auto;
@@ -12,10 +21,6 @@
     width : 160px;
     height : 200px;
     list-style:none;}
-
-
-
-
 
 #pagination_ev{display:none;}
 
@@ -108,5 +113,7 @@ div.socialtags {
 
 
 .menuder li ul { border-width: 0; }
+
+
 
 .menuder li ul ul { margin: -1.75em 0 0 6em; }
