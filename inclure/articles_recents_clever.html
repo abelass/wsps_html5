@@ -12,8 +12,9 @@
 					<h2 class="h1 #EDIT{titre}">#TITRE</h2>
 					[<p class="#EDIT{soustitre} soustitre">(#SOUSTITRE)</p>]
 
-					<p class="info-publi"><abbr class="published" title="[(#DATE|date_iso)]">[(#DATE|nom_jour) ][(#DATE|affdate)]</abbr>
-					[(#VAL{donnees_auteurs_date}|a_cacher|non)
+					<p class="info-publi">
+					[(#VAL{donnees_date}|a_cacher|non)  <abbr class="published" title="[(#DATE|date_iso)]">[(#DATE|nom_jour) ][(#DATE|affdate)]</abbr>]
+					[(#VAL{donnees_auteurs}|a_cacher|non)
 						[, <span class="auteurs"><:par_auteur:> (#LESAUTEURS)</span>]
 						]
 						</p>

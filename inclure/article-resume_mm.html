@@ -13,8 +13,10 @@
 	    </a>
 	
 	<div class="info-publi">
+	  [(#VAL{donnees_auteurs}|in_array{#GET{afficher}}|non)
 		[<abbr class="published" title="[(#DATE|date_iso)]">(#DATE|affdate_jourcourt)</abbr>]
-		[(#VAL{donnees_auteurs_date}|in_array{#GET{afficher}}|non)
+	  	]
+		[(#VAL{donnees_auteurs}|in_array{#GET{afficher}}|non)
 			[<span class="sep">, </span><span class="auteurs"><:par_auteur:> (#LESAUTEURS)</span>]
 			]
 	</div>
