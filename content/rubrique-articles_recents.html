@@ -8,7 +8,7 @@
 	[(#REM) Boite à outils]
     #SET{texte,#DESCRIPTIF|sinon{#TEXTE|couper{250}}|textebrut}
     [(#INCLURE{fond=inclure/outils,env,titre,introduction=#GET{texte},url=#URL_RUBRIQUE,classe=absolute})]
-	[<div class="#EDIT{texte} chapo">(#TEXTE)</div>]
+	[<div class="#EDIT{texte} texte">(#TEXTE)</div>]
 
     <INCLURE{fond=inclure/articles_recents,id_rubrique='',env,ajax,id_parent,rubriques_exclus=(#CONFIG{wsps_html5/cacher_rubrique_articles_recents}|picker_selected{rubrique})}/>
     </div>
