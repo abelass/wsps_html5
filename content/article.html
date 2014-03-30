@@ -61,7 +61,10 @@
         [(#REM) Petition :
         La petition ayant une PAGINATION il faut absolument {env}
         et pourquoi pas ajax
-        ][(#PETITION|oui)<INCLURE{fond=inclure/petition,id_article,env,ajax} />]
+        ][(#PETITION|?{
+            [(#INCLURE{fond=inclure/petition,id_article,env,ajax})],
+            [(#INCLURE{fond=inclure/petition,id_article=#ID_TRAD,env,ajax})]           
+            })]
 
         [(#REM) Forum de l'article
         NB : pour desactiver les forums de l'article, supprimez simplement la ligne ci-dessous ]
