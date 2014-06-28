@@ -2,7 +2,7 @@
 	prefix="wsps_html5"
 	categorie="squelette"
 	version="1.1.0"
-	etat="test"
+	etat="stable"
 	compatibilite="[3.0.10;3.0.*]"
 	logo="prive/themes/spip/images/wsps_html5-64.png"
 	documentation=""
