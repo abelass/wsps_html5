@@ -1,7 +1,7 @@
 <paquet
 	prefix="wsps_html5"
 	categorie="squelette"
-	version="1.1.0"
+	version="1.1.1"
 	etat="stable"
 	compatibilite="[3.0.10;3.0.*]"
 	logo="prive/themes/spip/images/wsps_html5-64.png"
@@ -26,6 +26,7 @@
 	<necessite nom="cache_cool" compatibilite="[0.4.1;[" />
 	<necessite nom="article_pdf" compatibilite="[0.4.5;[" />
 	<necessite nom="recommander" compatibilite="[ 1.0.6;[" />
+	<necessite nom="mailcrypt" compatibilite="[ 2.4.1;[" />	
 
 	<utilise nom="multilingue" compatibilite="[1.0.2;[" />
 
