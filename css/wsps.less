@@ -113,14 +113,17 @@ img {
 
 .menuder li, .menuder a { width: auto;}
 .menuder{
-  ul { background-color: transparent;}
+  background-color: @navbarInverseBackground;
+  ul { background-color: @navbarInverseBackground;}
   a.daddy { background: none; }
   li ul { 
     border-width: 0; 
     ul { margin: -1.75em 0 0 6em; }
     }
   } 
-.menuder li:hover,.menuder li.hover { background-color: transparent; }
+.menuder li:hover,.menuder li.hover { background-color: @navbarInverseBackground; }
+
+
 
 /*
  * Home
