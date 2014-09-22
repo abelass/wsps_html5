@@ -1,0 +1,20 @@
+<BOUCLE_contenu_rubrique(RUBRIQUES){id_rubrique}{tout}>
+<section>
+	<header class="cartouche">
+		[(#LOGO_RUBRIQUE||image_reduire{200,200})]
+		<h1 class="h1 #EDIT{titre}">#TITRE</h1>
+	</header>
+    <div class="main">	
+	[(#REM) Boite à outils]
+    #SET{texte,#DESCRIPTIF|sinon{#TEXTE|couper{250}}|textebrut}
+    [(#INCLURE{fond=inclure/outils,env,titre,introduction=#GET{texte},url=#URL_RUBRIQUE,classe=absolute})]
+	
+	[<div class="#EDIT{texte} texte">(#TEXTE)</div>]
+[(#REM) Articles de la rubrique ]
+
+<INCLURE{fond=inclure/articles_rubrique,id_rubrique,env,ajax,id_trad,id_parent}/>
+</BOUCLE_contenu_rubrique>
+    </div>
+</section>
+
+

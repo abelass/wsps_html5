@@ -1,0 +1,15 @@
+<BOUCLE_contenu_rubrique(RUBRIQUES){id_rubrique}{tout}>
+<article>
+    <header class="cartouche">
+		[(#LOGO_RUBRIQUE||image_reduire{200,200})]
+		<h1 class="h1 #EDIT{titre}">#TITRE</h1>
+    </header>        
+
+	[<div class="#EDIT{texte} texte">(#TEXTE)</div>]
+    <BOUCLE_auteur(AUTEURS){id_auteur}{statut=0minirezo}{tout}{1,1}>
+    	#FORMULAIRE_ECRIRE_AUTEUR
+    </BOUCLE_auteur>	
+</article>
+
+
+</BOUCLE_contenu_rubrique>

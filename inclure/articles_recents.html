@@ -1,0 +1,12 @@
+<B_articles>
+<section class="liste articles sommaire">
+	#ANCRE_PAGINATION
+	[(#ID_RUBRIQUE|?{<h2 class="h2 invisible"><:articles_rubrique:></h2>,<h2 class="h2 articles_recents"><:derniers_articles:></h2>})]
+	<ul class="liste-items">
+		<BOUCLE_articles(ARTICLES) {id_rubrique ?} {id_rubrique !IN  #ENV{rubriques_exclus}} {!par date}{lang} {pagination 5}>	
+		#INCLURE{fond=inclure/article-resume,id_article}	
+		</BOUCLE_articles>
+	</ul>
+	[<div class="pagination">(#PAGINATION)</div>]
+</section>
+</B_articles>

@@ -1,0 +1,11 @@
+<BOUCLE_article_head(ARTICLES) {id_article}>
+<title>[(#TITRE|textebrut) - ][(#NOM_SITE_SPIP|textebrut)]</title>
+[<meta name="description" content="(#INTRODUCTION{150}|attribut_html)" />]
+<meta property="og:title" content="#TITRE" />
+[<meta property="og:description" content="(#INTRODUCTION{150}|textebrut)" />]
+[<meta property="og:image" content="(#LOGO_ARTICLE|extraire_attribut{src}|url_absolue)" />]
+[<meta property="og:url" content="(#URL_ARTICLE|url_absolue)" />]
+<meta property="og:site_name" content="#NOM_SITE_SPIP" />
+<meta property="og:type" content="website"/>
+[<link rel="canonical" href="(#URL_ARTICLE|url_absolue)" />]
+</BOUCLE_article_head>

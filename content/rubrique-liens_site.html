@@ -1,0 +1,51 @@
+<BOUCLE_content(RUBRIQUES){id_rubrique}>
+<section>
+
+    <header class="cartouche">
+        [(#LOGO_RUBRIQUE|image_reduire{200,200})]
+        <h1 class="#EDIT{titre}">#TITRE</h1>
+    </header>
+
+    <div class="main">
+    [(#REM) Boite à outils]
+    [(#INCLURE{fond=inclure/outils,env})]        
+        [<div class="#EDIT{texte} texte">(#TEXTE)</div>]
+        <B_articles>
+        <br class="nettoyeur"/>
+        <BOUCLE_articles(ARTICLES){id_rubrique}{0,1}>
+            <div class="liste articles">
+            <INCLURE{fond=liste/articles-resume,env,ajax,titre=<:articles_rubrique:>} />
+            </div>
+        </BOUCLE_articles>
+
+    <aside>
+            [(#REM) Sites de la rubrique ]
+            <B_sites>
+            <div class="liste sites">
+                    <h2 class="h2"><:sur_web:></h2>
+                    <ul class="liste-items">
+                            <BOUCLE_sites(SITES){par nom_site, multi nom_site>
+                            <li class="item short">#INCLURE{fond=inclure/resume/site,id_syndic}
+                                    <B_syndic>
+                                    <ul class="spip">
+                                            <BOUCLE_syndic(SYNDIC_ARTICLES) {id_syndic} {age<180} {par date}{inverse} {0,3}>
+                                            <li class="short with-publication-inline">#INCLURE{fond=inclure/resume/syndic_article,id_syndic_article}</li>
+                                            </BOUCLE_syndic>
+                                    </ul>
+                                    </B_syndic>
+                            </li>
+                            </BOUCLE_sites>
+                    </ul>
+            </div>
+            </B_sites>
+
+        [(#REM) Proposer un site ]
+        #FORMULAIRE_SITE
+    </aside>
+
+    <footer>
+        [<div class="notes"><h2><:info_notes:></h2>(#NOTES)</div>]
+    </footer>
+    
+</section>
+</BOUCLE_content>

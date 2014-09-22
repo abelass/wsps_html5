@@ -1,0 +1,150 @@
+#CACHE{0}
+[(#REM) squelette de la noisette  boite à outils pour article format barre]
+<style>
+[(#CONFIG{outils_article/barre}|?{' ',''})
+.textemoins, .texteplus, .pdf, .impression, .mail, .rss, .rssforum, .auteur, .reagir, .compteur, .note
+{display:inline;}
+
+]
+
+[(#CONFIG{outils_article/boite}|?{' ',''})
+.textemoins, .texteplus {display:inline;}
+]
+
+
+
+</style>
+<div id="outils">
+<BOUCLE_article_boite(ARTICLES) {id_article=#ID_ARTICLE}>
+
+
+[(#CONFIG{outils_article/texte}|?{' ',''})
+<div class="textemoins">
+<img src="[(#CONFIG{outils_article/theme})]/textemoins.png" alt="fontsizedown" class="textsizedown" />
+
+[(#CONFIG{outils_article/textemoinsint}|?{' ',''})
+[<span>(#CONFIG{outils_article/textemoinsdesc})</span>]
+]
+</div>
+<div class="texteplus">
+<img src="[(#CONFIG{outils_article/theme})]/texteplus.png" alt="fontsizeup" class="textsizeup" /> 
+[(#CONFIG{outils_article/texteplusint}|?{' ',''})
+[<span>(#CONFIG{outils_article/texteplusdesc})</span>]
+]
+</div>
+]
+
+
+<div class="pdf">
+
+	[(#ARTICLE_PDF{id_article})]
+#ARTICLE_PDF{id_article}
+[(#CONFIG{outils_article/pdfint}|?{' ',''})
+<span>[(#CONFIG{outils_article/pdfdesc})]</span>
+]
+</div>
+
+
+<div class="impression">
+[(#CONFIG{outils_article/impression}|?{' ',''})
+<a href="#URL_ARTICLE{1 class=impression}" title="afficher une version imprimable de cet article" onclick="window.open(this.href,'_blank');return false;">
+<img src="[(#CONFIG{outils_article/theme})]/printer.png" alt="impression" title="impression" />
+</a>
+]
+[(#CONFIG{outils_article/impressionint}|?{' ',''})
+[<span>(#CONFIG{outils_article/impressiondesc})</span>]
+]
+</div>
+
+
+<div class="mail">
+[(#CONFIG{outils_article/mail}|?{' ',''})
+#ENVIAR_EMAIL**
+]
+[(#CONFIG{outils_article/mailint}|?{' ',''})
+[<span>(#CONFIG{outils_article/maildesc})</span>]
+]
+</div>
+
+
+<div class="mail">
+[(#CONFIG{outils_article/recommander}|oui)
+[(#RECOMMANDER{#TITRE,#URL_ARTICLE,#INTRODUCTION})]
+[(#CONFIG{outils_article/recommanderint}|?{' ',''})
+[<span>(#CONFIG{outils_article/decommanderdesc})</span>]
+]
+]
+</div>
+
+
+<div class="rss">
+<BOUCLE_rub_rss(RUBRIQUES) {id_rubrique}>
+[(#CONFIG{outils_article/rss}|?{' ',''})
+<a rel="alternate" type="application/rss+xml" 
+href="[(#URL_PAGE{backend}|parametre_url{id_rubrique,#ID_RUBRIQUE})]"
+[ title="RSS (#TITRE|texte_backend)"]>
+<img src="[(#CONFIG{outils_article/theme})]/rss_black.png" alt="suivre la vie du site" title="suivre la vie du site"  /></a>
+[(#CONFIG{outils_article/rssint}|?{' ',''})
+[<span>(#CONFIG{outils_article/rssdesc})</span>]
+]
+]
+</BOUCLE_rub_rss>
+</div>
+
+
+<div class="rssforum">
+<BOUCLE_forum_rss(ARTICLES){id_article}>
+[(#CONFIG{outils_article/rssforum}|?{' ',''})
+<a href="[(#PARAMETRES_FORUM|url_rss_forum)]" rel="nofollow">
+<img src="[(#CONFIG{outils_article/theme})]/feed.png" alt="syndiquer le forum" title="syndiquer le forum" /></a>
+[(#CONFIG{outils_article/rssforumint}|?{' ',''})
+[<span>(#CONFIG{outils_article/rssforumdesc})</span>]
+]
+]
+</BOUCLE_forum_rss>
+</div>
+
+
+<div class="auteur">
+<BOUCLE_auteur_article(AUTEURS){id_article}>
+[(#CONFIG{outils_article/auteur}|?{' ',''})
+<a href="#URL_AUTEUR">
+<img src="[(#CONFIG{outils_article/theme})]/auteur.png" alt="articles du meme auteur" title="articles du meme auteur"></a>
+[(#CONFIG{outils_article/auteurint}|?{' ',''})
+[<span>(#CONFIG{outils_article/auteurdesc})</span>]
+]
+]
+</BOUCLE_auteur_article>
+</div>
+
+
+<div class="reagir">
+[(#CONFIG{outils_article/reagir}|?{' ',''})
+[<a href="(#PARAMETRES_FORUM|url_reponse_forum)" title="réagir à l'article">
+<img src="[(#CONFIG{outils_article/theme})]/chat.png"></a>]
+[(#CONFIG{outils_article/reagirint}|?{' ',''})
+[<span>(#CONFIG{outils_article/reagirdesc})</span>]
+]
+]
+</div>
+
+
+<div class="compteur">
+<BOUCLE_compteur_forum(FORUMS){id_article}></BOUCLE_compteur_forum>
+[(#CONFIG{outils_article/compteur}|?{' ',''})
+[(#TOTAL_BOUCLE|accord_pluriel{r&eacute;action})]
+]
+<//B_compteur_forum>
+</div>
+
+
+<div class="note">
+[(#CONFIG{outils_article/note}|?{' ',''})
+#NOTATION
+]
+</div>
+
+
+
+</BOUCLE_article_boite>
+</div>

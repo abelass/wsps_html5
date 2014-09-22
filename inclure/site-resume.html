@@ -1,0 +1,16 @@
+<BOUCLE_site(SITES) {id_syndic}>
+<li class="item">
+	<div  class="#EDIT{nom_site}">
+	<a href="[(#ID_SYNDIC|generer_url_entite{site,'','',#CONNECT})]">#NOM_SITE</a>
+	</div>
+	[<div class="#EDIT{descriptif} introduction entry-content">(#DESCRIPTIF|couper{200})</div>]
+		<B_syndic>
+		<ul>
+				<BOUCLE_syndic(SYNDIC_ARTICLES) {id_syndic} {age<180} {par date}{inverse} {0,3}>
+				<li><a href="#URL_ARTICLE" class="spip_out">#TITRE</a>
+				</li>
+				</BOUCLE_syndic>
+		</ul>
+		</B_syndic>
+</li>
+</BOUCLE_site>

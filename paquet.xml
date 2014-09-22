@@ -1,0 +1,38 @@
+<paquet
+	prefix="wsps_html5"
+	categorie="squelette"
+	version="1.1.4"
+	etat="stable"
+	compatibilite="[3.0.10;3.0.*]"
+	logo="prive/themes/spip/images/wsps_html5-64.png"
+	documentation=""
+>
+
+
+	<nom>Web Simple Pack Start html5</nom>
+
+	<auteur lien='http://websimple.be'>Rainer Müller</auteur>
+
+	<licence>GNU/GPL</licence>
+	
+	<necessite nom="compositions" compatibilite="[3.3.2;]" />
+	<necessite nom="edition_directe" compatibilite="[3.2.8;]" />
+	<necessite nom="crayons" compatibilite="[1.16.2;]" />	
+	<necessite nom="spipr_dist" compatibilite="[0.4.3;[" />
+	<necessite nom="saisies" compatibilite="[1.31.4;[" />
+	<necessite nom="corbeille" compatibilite="[	3.0.3;[" />
+	<necessite nom="nospam" compatibilite="[1.5.3;[" />
+	<necessite nom="socialtags" compatibilite="[1.0.4;[" />
+	<necessite nom="cache_cool" compatibilite="[0.4.1;[" />
+	<necessite nom="article_pdf" compatibilite="[0.4.5;[" />
+	<necessite nom="recommander" compatibilite="[ 1.0.6;[" />
+	<necessite nom="mailcrypt" compatibilite="[ 2.4.1;[" />	
+
+	<utilise nom="multilingue" compatibilite="[1.0.2;[" />
+
+	<pipeline nom="autoriser" inclure="wsps_html5_autorisations.php" /> 
+	<pipeline nom="insert_head" inclure="wsps_html5_pipelines.php" /> 
+	<pipeline nom="ajouter_menus" inclure="wsps_html5_pipelines.php" /> 
+	<pipeline nom="recuperer_fond" inclure="wsps_html5_pipelines.php" /> 
+
+</paquet>

@@ -1,0 +1,32 @@
+[(#IMPRIMER|non|et{#VAL{cacher_boite_outils}|a_cacher|non})<aside id="outils"[ class="(#CLASSE)"]>
+	[<div class="item article_pdf">
+		(#ARTICLE_PDF{id_article})
+	</div>]
+	<div class="item imprimer">
+		<a href="javascript:;" onclick="centrarVentana('[(#URL_PAGE{imprimer_#ENV{type-page}}|parametre_url{id_rubrique,#ID_RUBRIQUE}|parametre_url{id_article,#ID_ARTICLE})]','Imprimir_documento','scrollbars=yes,resizable=yes','700','470','true')" title="<:imprimirdocumento:version_doc_imprimir:>" style="border:none">[(#CHEMIN{prive/themes/spip/images/imprimer.png}|image_reduire{24}|inserer_attribut{alt,print})] 
+		</a>
+	</div>	
+	<div class="item recommander">
+		<a title="<:recommander:recommander:> "class="mediabox" href="[(#URL_PAGE{recommander}|parametre_url{url,#ENV{url}}|parametre_url{titre,#ENV{titre}}|parametre_url{texte,#ENV{introduction}})]">
+			[(#CHEMIN{prive/themes/spip/images/mail.png}|image_reduire{25}|inserer_attribut{alt,recommend})]
+		</a>
+	</div>
+</aside>
+
+<script type="text/javascript">
+	/*
+	Open Centered Popup Window Script-
+	 DHTMLShock (www.dhtmlshock.com)
+	To add more shock to your site, visit www.DHTMLShock.com
+	*/
+	function centrarVentana(theURL,winName,features, myWidth, myHeight, isCenter) { //v3.0
+		if(window.screen)if(isCenter)if(isCenter=="true"){
+		var myLeft = (screen.width-myWidth)/2;
+		var myTop = (screen.height-myHeight)/2;
+		features+=(features!='')?',':'';
+		features+=',left='+myLeft+',top='+myTop;
+	}
+	window.open(theURL,winName,features+((features!='')?',':'')+'width='+myWidth+',height='+myHeight);
+	}
+</script>
+]

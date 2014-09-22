@@ -1,0 +1,26 @@
+#SET{images,#ARRAY{0,png,1,jpg,2,gif}}
+#SET{video_dist,#ARRAY{0,dist_daily,1,dist_vimeo,2,dist_youtu}}
+#SET{video_local,#ARRAY{0,flv,1,ogg,2,mp4}}
+#SET{videos,#GET{video_dist}|array_merge{#GET{video_local}}}
+#SET{audio,#ARRAY{0,mp3}}
+#SET{non_docs,#GET{videos}|array_merge{#GET{images}}|array_merge{#GET{audio}}}
+
+<B_articles>
+<section class="liste articles sommaire">
+	#ANCRE_PAGINATION
+	[(#ID_RUBRIQUE|?{<h2 class="h2 invisible"><:articles_rubrique:></h2>,<h2 class="h2 articles_recents"><:derniers_articles:></h2>})]
+	<ul class="liste-items">
+		<BOUCLE_articles(ARTICLES) {id_rubrique ?} {id_rubrique !IN  #ENV{rubriques_exclus}} {!par date}{lang} {pagination 5}>
+		#SET{logo_article,#LOGO_ARTICLE|image_reduire{150,100}}	
+            <BOUCLE_docs(DOCUMENTS){id_article}{extension IN #GET{non_docs}}{0,1}>
+            #SET{logo_article,#FICHIER|image_reduire{150,100}}  
+            [(#EXTENSION|in_array{#GET{video_dist}}|oui)#SET{logo_article,#MODELE{video_dist_simple,hauteur=100,largeur=150}}]
+            [(#EXTENSION|in_array{#GET{video_local}}|oui)#SET{logo_article,#MODELE{video_local_simple,hauteur=100,largeur=150}}]
+            [(#EXTENSION|in_array{#GET{audio}}|oui)#SET{logo_article,#MODELE{emb}}]            
+            </BOUCLE_docs>
+		#INCLURE{fond=inclure/article-resume_mm,id_article,logo_article=#GET{logo_article}}
+		</BOUCLE_articles>
+	</ul>
+	[<p class="pagination">(#PAGINATION)</p>]
+</section>
+</B_articles>

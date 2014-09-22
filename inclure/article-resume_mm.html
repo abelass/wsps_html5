@@ -1,0 +1,34 @@
+[(#CONFIG{wsps_html5/cacher_site_public}|is_array|?{
+	#SET{afficher,#CONFIG{wsps_html5/cacher_site_public}},
+	#SET{afficher,#ARRAY}
+	}
+)]
+
+<BOUCLE_articles(ARTICLES) {id_article} {statut?}>
+<li class="item hentry">
+	<article>
+	    <a href="#URL_ARTICLE" rel="bookmark">
+	        <h3 class="h3 entry-title">#TITRE</h3>
+	        [(#ENV**{logo_article})]
+	    </a>
+	
+	<div class="info-publi">
+	  [(#VAL{donnees_auteurs}|in_array{#GET{afficher}}|non)
+		[<abbr class="published" title="[(#DATE|date_iso)]">(#DATE|affdate_jourcourt)</abbr>]
+	  	]
+		[(#VAL{donnees_auteurs}|in_array{#GET{afficher}}|non)
+			[<span class="sep">, </span><span class="auteurs"><:par_auteur:> (#LESAUTEURS)</span>]
+			]
+	</div>
+	[<div class="#EDIT{intro} introduction entry-content">(#INTRODUCTION)</div>]
+	<div class="meta-publi">
+	<a class="lire-la-suite" href="#URL_ARTICLE"><span class="lire-la-suite-titre"><:zcore:lire_la_suite:><em>#TITRE</em></span></a>
+	<BOUCLE_nb_commentaires(FORUMS) {id_article}{plat} />	[(#TOTAL_BOUCLE|oui)
+		<span class="sep">|</span>
+		<a[ href="(#URL_ARTICLE|ancre_url{forum})"] class="nb_commentaires">[(#TOTAL_BOUCLE)]&nbsp;[(#TOTAL_BOUCLE|=={1}|?{<:zcore:commentaire:>,<:zcore:commentaires:>})]</a>
+		]
+	<//B_nb_commentaires>
+	</div>
+	</article>
+</li>
+</BOUCLE_articles>

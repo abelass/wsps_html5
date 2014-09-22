@@ -1,0 +1,5 @@
+<composition>
+        <nom>Les articles les plus récents de la Rubrique</nom>
+
+        <description>Affiche les articles les plus récents de la rubrique, dans confign il peut &ecirc;tre pr&eacute;cis&eacute; si on veut afficher enti&egrave;rement le premier article de la s&eacute;l&eacute;ction</description>
+</composition>

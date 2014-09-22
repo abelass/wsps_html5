@@ -1,0 +1,28 @@
+<div class="formulaire_spip formulaire_#FORM" id="formulaire_recommander">
+
+[<p class="reponse_formulaire reponse_formulaire_ok">(#ENV*{message_ok})</p>]
+[<p class="reponse_formulaire reponse_formulaire_erreur">(#ENV*{message_erreur})</p>]
+[(#ENV{editable})
+<form method="post" action="#ENV{action}"><div>
+	#ACTION_FORMULAIRE{#ENV{action}}
+	<ul>
+		<li class="editer_recommander_from[ (#ENV**{erreurs}|table_valeur{recommander_from}|oui)erreur]">
+			<label for='recommander_from'><:forum:forum_votre_email:></label>[
+				<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{recommander_from})</span>
+			]<input type='text' class='text forml' id='recommander_from' name='recommander_from' value='#ENV*{recommander_from}' />
+		</li>
+		<li class="editer_recommander_to[ (#ENV**{erreurs}|table_valeur{recommander_to}|oui)erreur]">
+			<label for='recommander_to'><:recommander:destinataire:></label>[
+				<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{recommander_to})</span>
+			]<input type='text' class='text forml formo' id='recommander_to' name='recommander_to' value='#ENV*{recommander_to}' />
+		</li>
+		<li class="editer_recommander_message[ (#ENV**{erreurs}|table_valeur{recommander_message}|oui)erreur]">
+			<label for='recommander_message'><:forum:forum_message:></label>[
+				<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{recommander_message})</span>
+			]<textarea class='text forml' id='recommander_message' name='recommander_message' rows='5' cols='30'>#ENV*{recommander_message}</textarea>
+		</li>
+	</ul>
+	<p class='boutons spip_bouton'><input type='submit' class='submit' name='recommander_email' value='<:recommander:recommander_message:>' /></p>
+	</div></form>
+]
+</div>

@@ -1,0 +1,6 @@
+[(#REM) Affiche un plan de la rubrique]
+[(#INCLURE{fond=contenu/rubrique-articles_rubrique,id_rubrique,env,id_trad,id_parent,imprimer}|sinon{
+	[(#INCLURE{fond=contenu/rubrique-sous_rubriques_tous,id_rubrique,env,id_trad,id_parent,imprimer})]
+	})]
+
+[(#INCLURE{fond=contenu/rubrique-documents,id_rubrique,env,id_parent,id_trad})]
