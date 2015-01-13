@@ -1,5 +1,5 @@
 #SET{chemin,#ENV{chemin}}
-<BOUCLE_extras(DATA){source table, (#GET{chemin}|find_all_in_path{mcp-#ENV{type}})} {par cle}>
+<BOUCLE_extras(DATA){source table, (#GET{chemin}|find_all_in_path{mcp-#ENV{type}_mcp1})} {par cle}>
 	<INCLURE{fond=#GET{chemin}#CLE|replace{'.html',''},env}/>
 </BOUCLE_extras>
 [(#ENV{chemin}|=={aside}|oui)
