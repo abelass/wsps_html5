@@ -1,8 +1,5 @@
 [(#REM) Menu de navigation par rubriques ]
-[(#PLUGIN{shop}|oui)
-<div class="ajax">
-	    <INCLURE{fond=inclure/bloc_panier,objet=article,id_objet=#ID_ARTICLE,env,ajax}/>
-</div>]
+
 <INCLURE{fond=inclure/rubriques,id_rubrique}>
 	
 <INCLURE{fond=inclure/navsub,id_rubrique}>	
