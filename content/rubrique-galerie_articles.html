@@ -7,7 +7,9 @@
 	</header>
     <div class="main">  	
 	[(#REM) Boite à outils]
-	[(#INCLURE{fond=inclure/outils,env,classe=absolute})]
+	[(#TEXTE|non)#SET{class,absolute}]
+    [(#INCLURE{fond=inclure/outils,env,class=#GET{class}})]
+	
 	[<div class="#EDIT{texte} texte">(#TEXTE)</div>]
     [(#CONFIG{wsps_html5/affichage_clever_articles_recent}|oui)#SET{clever,_clever}]
     <INCLURE{fond=inclure/articles_recents#GET{clever},id_rubrique='',env,ajax,id_parent,rubriques_exclus=''}/>

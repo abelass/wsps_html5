@@ -7,7 +7,8 @@
     <div class="main">	
 	[(#REM) Boite à outils]
     #SET{texte,#DESCRIPTIF|sinon{#TEXTE|couper{250}}|textebrut}
-    [(#INCLURE{fond=inclure/outils,env,titre,introduction=#GET{texte},url=#URL_RUBRIQUE,classe=absolute})]
+    [(#GET{texte}|non)#SET{class,absolute}]
+    [(#INCLURE{fond=inclure/outils,env,titre,introduction=#GET{texte},url=#URL_RUBRIQUE,class=#GET{class}})]
 	
 	[<div class="#EDIT{texte} texte">(#TEXTE)</div>]
 [(#REM) Articles de la rubrique ]
