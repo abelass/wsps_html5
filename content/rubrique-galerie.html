@@ -13,7 +13,7 @@
     [(#REM) Portfolio : album d'images ]
     
     <B_articles>
-        <aside class="bloc clearfix" id="documents_album">
+        <div  id="documents_album">
         <ul>
         <BOUCLE_articles(ARTICLES){id_rubrique}{pagination 9}>#SET{titre,#TITRE}
         <B_documents_portfolio2>
@@ -34,8 +34,6 @@
         </ul>
         [<p class="pagination">(#PAGINATION)</p>]
     </div><!--#documents_album-->
-    </B_articles>
-    </aside><!--#documents_album-->
     </B_articles>
     </div>
 </section>
