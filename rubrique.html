@@ -4,9 +4,9 @@
         ,
         [(#SET{id_home,#CONFIG{wsps_html5/rubrique_accueil}|picker_selected{rubrique}})]
         [(#GET{id_home}|is_array|oui)
-            [(#CONFIG{wsps_html5/rubrique_accueil}|picker_selected{rubrique}|valeur_tableau{0}|=={#ID_RUBRIQUE}|oui)#SET{home,oui}]
+            [(#CONFIG{wsps_html5/rubrique_accueil}|picker_selected{rubrique}|table_valeur{0}|=={#ID_RUBRIQUE}|oui)#SET{home,oui}]
             #SET{id_home,oui}
-            ]                   
+            ]
         })]
 	<INCLURE{fond=structure,env,id_secteur=#ID_SECTEUR,type-page=rubrique,id_trad,composition=#COMPOSITION,home=#GET{home}} />
 </BOUCLE_principale_rubrique>

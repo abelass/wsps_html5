@@ -1,7 +1,7 @@
 <paquet
 	prefix="wsps_html5"
 	categorie="squelette"
-	version="1.1.15"
+	version="1.1.16"
 	etat="stable"
 	compatibilite="[3.0.17;3.1.*]"
 	logo="prive/themes/spip/images/wsps_html5-64.png"
@@ -14,10 +14,10 @@
 	<auteur lien='http://websimple.be'>Rainer Müller</auteur>
 
 	<licence>GNU/GPL</licence>
-	
+
 	<necessite nom="compositions" compatibilite="[3.3.2;]" />
 	<necessite nom="edition_directe" compatibilite="[3.2.8;]" />
-	<necessite nom="crayons" compatibilite="[1.16.2;]" />	
+	<necessite nom="crayons" compatibilite="[1.16.2;]" />
 	<necessite nom="spipr_dist" compatibilite="[0.4.3;[" />
 	<necessite nom="saisies" compatibilite="[1.31.4;[" />
 	<necessite nom="corbeille" compatibilite="[	3.0.3;[" />
@@ -30,11 +30,11 @@
 	<necessite nom="numero" compatibilite="[ 2.0.5;[" />
 
 	<utilise nom="multilingue" compatibilite="[1.0.2;[" />
-	<utilise nom="shop" compatibilite="[1.5.1;[" />	
+	<utilise nom="shop" compatibilite="[1.5.1;[" />
 
-	<pipeline nom="autoriser" inclure="wsps_html5_autorisations.php" /> 
-	<pipeline nom="insert_head" inclure="wsps_html5_pipelines.php" /> 
-	<pipeline nom="ajouter_menus" inclure="wsps_html5_pipelines.php" /> 
-	<pipeline nom="recuperer_fond" inclure="wsps_html5_pipelines.php" /> 
+	<pipeline nom="autoriser" inclure="wsps_html5_autorisations.php" />
+	<pipeline nom="insert_head" inclure="wsps_html5_pipelines.php" />
+	<pipeline nom="ajouter_menus" inclure="wsps_html5_pipelines.php" />
+	<pipeline nom="recuperer_fond" inclure="wsps_html5_pipelines.php" />
 
 </paquet>
