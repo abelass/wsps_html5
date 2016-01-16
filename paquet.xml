@@ -26,8 +26,8 @@
 	<necessite nom="cache_cool" compatibilite="[0.4.1;[" />
 	<necessite nom="article_pdf" compatibilite="[0.4.5;[" />
 	<necessite nom="recommander" compatibilite="[ 1.0.6;[" />
-	<necessite nom="mailcrypt" compatibilite="[ 2.4.1;[" />
 	<necessite nom="numero" compatibilite="[ 2.0.5;[" />
+	<necessite nom="couteau_suisse" compatibilite="[1.9.8;]" />
 
 	<utilise nom="multilingue" compatibilite="[1.0.2;[" />
 	<utilise nom="shop" compatibilite="[1.5.1;[" />
