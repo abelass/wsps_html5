@@ -1,5 +1,5 @@
 #SET{id_home,#CONFIG{wsps_html5/rubrique_accueil}|picker_selected{rubrique}}
-[(#GET{id_home}|is_array|oui)#SET{id_home,#CONFIG{wsps_html5/rubrique_accueil}|picker_selected{rubrique}|valeur_tableau{0}}]
+[(#GET{id_home}|is_array|oui)#SET{id_home,#CONFIG{wsps_html5/rubrique_accueil}|picker_selected{rubrique}|table_valeur{0}}]
 
 
 <BOUCLE_principale_rubrique(RUBRIQUES){id_rubrique=#GET{id_home}}{tout}>
