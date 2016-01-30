@@ -1,8 +1,10 @@
 #SET{id_home,#CONFIG{wsps_html5/rubrique_accueil}|picker_selected{rubrique}}
 [(#GET{id_home}|is_array|oui)#SET{id_home,#CONFIG{wsps_html5/rubrique_accueil}|picker_selected{rubrique}|table_valeur{0}}]
 
-
 <BOUCLE_principale_rubrique(RUBRIQUES){id_rubrique=#GET{id_home}}{tout}>
-    <INCLURE{fond=structure,env,id_rubrique,id_secteur=#ID_SECTEUR,type-page=rubrique,composition=#COMPOSITION,home=oui} />
+	<INCLURE{fond=structure,env,id_rubrique,id_secteur=#ID_SECTEUR,type-page=rubrique,composition=#COMPOSITION,home=oui} />
 </BOUCLE_principale_rubrique>
-
+	<BOUCLE_defaut(RUBRIQUES){tout}{0,1}>
+		<INCLURE{fond=structure,env,id_rubrique,id_secteur=#ID_SECTEUR,type-page=rubrique,composition=#COMPOSITION,home=oui} />
+	</BOUCLE_defaut>
+<//B_principale_rubrique>

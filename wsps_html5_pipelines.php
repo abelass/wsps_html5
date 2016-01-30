@@ -10,6 +10,16 @@ if (!defined('_ECRIRE_INC_VERSION')) return;
 // La feuille de style
 function wsps_html5_insert_head($flux){
     $flux .= '<link rel="stylesheet" href="'.find_in_path('css/wsps.less').'" type="text/css" media="all" />';
+		$flux .= '<script src="' .find_in_path('javascript/jquery.sidr.js') . '" type="text/javascript"></script>';
+		$flux .= '<script type="text/javascript">/* <![(#EVAL{chr(91)})]CDATA[(#EVAL{chr(91)})] */
+				jQuery(document).ready(function() {
+	jQuery("#mobile-header").sidr({
+	name: "sidr-main",
+	source: "#aside"
+	});
+});
+/* [(#EVAL{chr(93)})][(#EVAL{chr(93)})]> */</script>';
+
     return $flux;
 }
 
