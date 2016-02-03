@@ -28,10 +28,11 @@
 	<necessite nom="recommander" compatibilite="[ 1.0.6;[" />
 	<necessite nom="mailcrypt" compatibilite="[ 2.4.1;[" />
 	<necessite nom="numero" compatibilite="[ 2.0.5;[" />
-	<necessite nom="sidr" compatibilite="[ 1.2.4;[" />
+
 
 	<utilise nom="multilingue" compatibilite="[1.0.2;[" />
 	<utilise nom="shop" compatibilite="[1.5.1;[" />
+	<utilise nom="sidr" compatibilite="[ 1.2.4;[" />
 
 	<pipeline nom="autoriser" inclure="wsps_html5_autorisations.php" />
 	<pipeline nom="insert_head" inclure="wsps_html5_pipelines.php" />
