@@ -9,8 +9,8 @@ if (!defined('_ECRIRE_INC_VERSION')) return;
 
 // La feuille de style
 function wsps_html5_insert_head($flux){
-    $flux .= '<link rel="stylesheet" href="'.find_in_path('css/wsps.less').'" type="text/css" media="all" />';
-    return $flux;
+		$flux .= recuperer_fond('inclure/inc-head');
+	return $flux;
 }
 
 // Modifier l'affichage des menus
@@ -28,7 +28,7 @@ function wsps_html5_ajouter_menus($flux){
 				}
 			}
 		}	
-    return $flux;
+	return $flux;
 }
 
 // Intervenir sur l'affichage des squelettes
@@ -55,7 +55,6 @@ function wsps_html5_recuperer_fond($flux){
 		 $flux['texte']='';
 		}
 		//echo $fond;	
-    return $flux;
+	return $flux;
 }
 
-?>

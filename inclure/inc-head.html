@@ -1,0 +1,20 @@
+<link rel="stylesheet" href="#CHEMIN{css/wsps.less}" type="text/css" media="all" />
+
+[(#PLUGIN{sidr}|oui)
+<link rel="stylesheet" href="#CHEMIN{css/wsps_sidr.less}" type="text/css" media="all" />
+
+
+<script type="text/javascript">
+	$(function(){
+		var side_menu = '#CONFIG{sidr/selecteur,#menu}';
+		var button = 'responsive-menu-button';
+		if ( $(side_menu + ' > div').length ) {
+			$('.container').append('<div id="' + button + '" class="btn"><span> </span></div>');
+			$(document).on("click",'#' +button, function(){
+				jQuery.sidr('toggle','sidr-main');
+				$(this).toggleClass('open');
+			});
+		}
+	});
+</script>
+]
