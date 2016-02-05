@@ -10,6 +10,7 @@ if (!defined('_ECRIRE_INC_VERSION')) return;
 // La feuille de style
 function wsps_html5_insert_head($flux){
 		$flux .= recuperer_fond('inclure/inc-head');
+		$flux .= recuperer_fond('inclure/inc-head_sidr');
 	return $flux;
 }
 
