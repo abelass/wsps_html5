@@ -3,32 +3,40 @@
 
 	<header class="cartouche">
 		[(#LOGO_RUBRIQUE||image_reduire{200,200})]
-		<h1 class="h1 #EDIT{titre}">#TITRE</h1>	
+		<h1 class="h1 #EDIT{titre}">#TITRE</h1>
 	</header>
-    <div class="main">	
-	[(#REM) Boite à outils]
-    #SET{texte,#DESCRIPTIF|sinon{#TEXTE|couper{250}}|textebrut}
-    [(#GET{texte}|non)#SET{class,absolute}]
-    [(#INCLURE{fond=inclure/outils,env,titre,introduction=#GET{texte},url=#URL_RUBRIQUE,class=#GET{class}})]
-	
-	[<div class="#EDIT{texte} texte">(#TEXTE)</div>]
-	
-    [(#REM) Documents joints a la rubrique ]
-    <B_documents_joints>
-    <aside class="menu" id="documents_joints">
-        <h2><:medias:titre_documents_joints:></h2>
-        <ul class="spip">
-            <BOUCLE_documents_joints(DOCUMENTS) {id_rubrique} {mode=document} {par num titre, date} {doublons}>
-            <li>
-                <a href="#URL_DOCUMENT" type="#MIME_TYPE" class="spip_doc[ (#EXTENSION|attribut_html)]"><strong class="#EDIT{titre} titre">[(#TITRE|sinon{[(#FICHIER|basename|couper{80})]})]</strong>
-                <small class="info_document">([<abbr title="<:info_document:> #TYPE_DOCUMENT" class="ext">(#EXTENSION|strtoupper)</abbr> - ][<span>(#TAILLE|taille_en_octets)</span>])</small></a>
-                [<div class="#EDIT{descriptif} descriptif">(#DESCRIPTIF)</div>]
-            </li>
-            </BOUCLE_documents_joints>
-        </ul>
-    </aside><!--#documents_joints-->
-    </B_documents_joints>
-    </div>
+	<div class="main">
+		[(#REM) Boite à outils]
+		#SET{texte,#DESCRIPTIF|sinon{#TEXTE|couper{250}}|textebrut}
+		[(#GET{texte}|non)#SET{class,absolute}]
+		[(#INCLURE{fond=inclure/outils,env,titre,introduction=#GET{texte},url=#URL_RUBRIQUE,class=#GET{class}})]
+
+		[
+		<div class="#EDIT{texte} texte">(#TEXTE)</div>
+		] [(#REM) Documents joints a la rubrique ]
+		<B_documents_joints>
+		<aside class="menu" id="documents_joints">
+			<h2>
+				<:medias:titre_documents_joints:>
+			</h2>
+			<ul class="spip">
+				<BOUCLE_documents_joints (DOCUMENTS) {id_rubrique} {mode=document}
+					{par numtitre, date} {doublons}>
+				<li><a href="#URL_DOCUMENT" type="#MIME_TYPE"
+					class="spip_doc[ (#EXTENSION|attribut_html)]"><strong
+						class="#EDIT{titre} titre">[(#TITRE|sinon{[(#FICHIER|basename|couper{80})]})]</strong>
+						<small class="info_document">([<abbr
+							title="<:info_document:> #TYPE_DOCUMENT" class="ext">(#EXTENSION|strtoupper)</abbr> - ]
+							[<span>(#TAILLE|taille_en_octets)</span>])
+					</small></a> 
+					[<div class="#EDIT{descriptif} descriptif">(#DESCRIPTIF)</div>]
+				</li>
+				</BOUCLE_documents_joints>
+			</ul>
+		</aside>
+		<!--#documents_joints--> 
+		</B_documents_joints>
+	</div>
 </section>
 
 </BOUCLE_contenu_rubrique>

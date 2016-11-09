@@ -29,9 +29,9 @@
 			#ANCRE_PAGINATION
 			<h2 class="h2"><:breves:breves:></h2>
 			<ul class="liste-items">
-			        <BOUCLE_breves(BREVES) {id_rubrique} {par date}{inverse} {pagination 5}>
-			        <li class="item short">#INCLURE{fond=inclure/resume/breve,id_breve}</li>
-			        </BOUCLE_breves>
+			<BOUCLE_breves(BREVES) {id_rubrique} {par date}{inverse} {pagination 5}>
+				<li class="item short">#INCLURE{fond=inclure/resume/breve,id_breve}</li>
+			</BOUCLE_breves>
 			</ul>
 			[<div class="pagination">(#PAGINATION)</div>]
 		</div>
