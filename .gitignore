@@ -9,3 +9,5 @@ dump
 local
 tmp
 .project
+/.buildpath
+/.settings/
