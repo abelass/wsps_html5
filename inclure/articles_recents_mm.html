@@ -12,12 +12,12 @@
 	<ul class="liste-items">
 		<BOUCLE_articles(ARTICLES) {id_rubrique ?} {id_rubrique !IN  #ENV{rubriques_exclus}} {!par date}{lang} {pagination 5}>
 		#SET{logo_article,#LOGO_ARTICLE|image_reduire{150,100}}	
-            <BOUCLE_docs(DOCUMENTS){id_article}{extension IN #GET{non_docs}}{0,1}>
-            #SET{logo_article,#FICHIER|image_reduire{150,100}}  
-            [(#EXTENSION|in_array{#GET{video_dist}}|oui)#SET{logo_article,#MODELE{video_dist_simple,hauteur=100,largeur=150}}]
-            [(#EXTENSION|in_array{#GET{video_local}}|oui)#SET{logo_article,#MODELE{video_local_simple,hauteur=100,largeur=150}}]
-            [(#EXTENSION|in_array{#GET{audio}}|oui)#SET{logo_article,#MODELE{emb}}]            
-            </BOUCLE_docs>
+			<BOUCLE_docs(DOCUMENTS){id_article}{extension IN #GET{non_docs}}{0,1}>
+				#SET{logo_article,#FICHIER|image_reduire{150,100}}  
+				[(#EXTENSION|in_array{#GET{video_dist}}|oui)#SET{logo_article,#MODELE{video_dist_simple,hauteur=100,largeur=150}}]
+				[(#EXTENSION|in_array{#GET{video_local}}|oui)#SET{logo_article,#MODELE{video_local_simple,hauteur=100,largeur=150}}]
+				[(#EXTENSION|in_array{#GET{audio}}|oui)#SET{logo_article,#MODELE{emb}}]
+			</BOUCLE_docs>
 		#INCLURE{fond=inclure/article-resume_mm,id_article,logo_article=#GET{logo_article}}
 		</BOUCLE_articles>
 	</ul>

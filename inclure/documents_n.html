@@ -4,15 +4,19 @@
 	<h2><:medias:info_portfolio:></h2>
 	<ul>
 		<BOUCLE_documents_portfolio(DOCUMENTS) {id_article} {mode ?}{extension IN png,jpg,gif} {par num titre, date}{doublons}{vu=non}>[
-		<li><a href="(#URL_DOCUMENT)" type="#MIME_TYPE" onclick="location.href='[(#URL_ARTICLE
-		  |url_absolue
-			|parametre_url{id_document,#ID_DOCUMENT}
-			|ancre_url{documents_portfolio}
-			)]';return false;"[ class="(#EXPOSER)"][ title="(#TITRE|attribut_html|couper{80})"]>[(#FICHIER
-			|image_passe_partout{90,90}
-			|image_recadre{90,90}
-			|inserer_attribut{class,spip_logos}
-			|inserer_attribut{alt,[(#TITRE|attribut_html|couper{80})]})]</a></li>
+		<li>
+			<a href="(#URL_DOCUMENT)" type="#MIME_TYPE" onclick="location.href='[(#URL_ARTICLE
+				|url_absolue
+				|parametre_url{id_document,#ID_DOCUMENT}
+				|ancre_url{documents_portfolio}
+				)]';return false;"[ class="(#EXPOSER)"][ title="(#TITRE|attribut_html|couper{80})"]>
+				[(#FICHIER
+					|image_passe_partout{90,90}
+					|image_recadre{90,90}
+					|inserer_attribut{class,spip_logos}
+					|inserer_attribut{alt,[(#TITRE|attribut_html|couper{80})]})]
+			</a>
+		</li>
 		]</BOUCLE_documents_portfolio>
 	</ul>
 </div><!--#documents_portfolio-->
