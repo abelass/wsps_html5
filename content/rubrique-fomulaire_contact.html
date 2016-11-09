@@ -4,11 +4,13 @@
 		[(#LOGO_RUBRIQUE||image_reduire{200,200})]
 		<h1 class="h1 #EDIT{titre}">#TITRE</h1>
 	</header>
-    <div class="main">      	
-	[<div class="#EDIT{texte} texte">(#TEXTE)</div>]
-    <BOUCLE_auteur(AUTEURS){statut=0minirezo}{tout}{1,1}>
-    	#FORMULAIRE_ECRIRE_AUTEUR
-    </BOUCLE_auteur>
+	<div class="main">
+		[
+		<div class="#EDIT{texte} texte">(#TEXTE)</div>
+		]
+		<BOUCLE_auteur (AUTEURS){statut=0minirezo}{tout}{1,1}>
+			#FORMULAIRE_ECRIRE_AUTEUR
+		</BOUCLE_auteur>
 	</div>
 </section>
 </BOUCLE_contenu_rubrique>

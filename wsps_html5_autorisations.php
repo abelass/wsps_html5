@@ -23,7 +23,4 @@ function autoriser_configurer_wsps_html5_dist($faire, $type, $id, $qui, $opt) {
 
 }
 
-
-
-
 ?>

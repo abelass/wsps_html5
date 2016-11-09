@@ -1,5 +1,6 @@
 <composition>
-        <nom>Les sousrubriques</nom>
+	<nom>Les sousrubriques</nom>
 
-        <description>Affiche les articles de la rubrique en question</description>
+	<description>Affiche les articles de la rubrique en question
+	</description>
 </composition>

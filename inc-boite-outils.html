@@ -1,5 +1,5 @@
 #CACHE{0}
-[(#REM) squelette de la noisette  boite à outils pour article]
+[(#REM) squelette de la noisette  boite ï¿½ outils pour article]
 
 <BOUCLE_article_boite(ARTICLES) {id_article}>
 <h2><:outilsarticle:titre:></h2>
@@ -51,7 +51,7 @@ href="[(#URL_PAGE{backend}|parametre_url{id_rubrique,#ID_RUBRIQUE})]"
 <BOUCLE_auteur_article(AUTEURS){id_article}>
 [(#CONFIG{outils_article/auteur}|?{' ',''})
 <li>
-<a href="#URL_AUTEUR"><img src="#CHEMIN{img_pack/auteur.png}" title="articles du même auteur"> <:outilsarticle:auteur:></a>
+<a href="#URL_AUTEUR"><img src="#CHEMIN{img_pack/auteur.png}" title="articles du mï¿½me auteur"> <:outilsarticle:auteur:></a>
 </li>
 ]
 </BOUCLE_auteur_article>
@@ -73,12 +73,3 @@ href="[(#URL_PAGE{backend}|parametre_url{id_rubrique,#ID_RUBRIQUE})]"
 
 </ul>
 </BOUCLE_article_boite>
-
-
-       
-           
-
-           
-
-        
-

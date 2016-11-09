@@ -4,15 +4,20 @@
 		[(#LOGO_RUBRIQUE||image_reduire{200,200})]
 		<h1 class="h1 #EDIT{titre}">#TITRE</h1>
 	</header>
-    <div class="main">	
-    	[(#REM) Boite à outils]
-        #SET{texte,#DESCRIPTIF|sinon{#TEXTE|couper{250}}|textebrut}
-        [(#GET{texte}|non)#SET{class,absolute}]
-    	[(#INCLURE{fond=inclure/outils,env,titre,introduction=#GET{texte},url=#URL_RUBRIQUE,class=#GET{class}})]
-    	[<div class="#EDIT{texte} texte">(#TEXTE)</div>]
-    
-    [(#CONFIG{wsps_html5/affichage_clever_articles_recent}|oui)#SET{clever,_clever}]
-    <INCLURE{fond=inclure/articles_recents#GET{clever},id_rubrique='',env,ajax,id_parent,rubriques_exclus=''}/>
-    </div>
+	<div class="main">
+		[(#REM) Boite à outils]
+		#SET{texte,#DESCRIPTIF|sinon{#TEXTE|couper{250}}|textebrut}
+		[(#GET{texte}|non)#SET{class,absolute}]
+			[(#INCLURE{fond=inclure/outils,env,titre,introduction=#GET{texte},url=#URL_RUBRIQUE,class=#GET{class}})]
+		[<div class="#EDIT{texte} texte">(#TEXTE)</div>]
+
+		[(#CONFIG{wsps_html5/affichage_clever_articles_recent}|oui)#SET{clever,_clever}]
+		<INCLURE {fond=inclure/articles_recents#GET{clever},
+			id_rubrique='',
+			env,
+			ajax,
+			id_parent,
+			rubriques_exclus='' }/>
+	</div>
 </section>
 </BOUCLE_contenu_rubrique>

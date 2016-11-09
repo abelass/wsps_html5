@@ -1,36 +1,38 @@
 <BOUCLE_contenu_rubrique(RUBRIQUES){id_rubrique}{tout}>
 <section>
-  <div class="cartouche">
-    [(#LOGO_RUBRIQUE||image_reduire{200,200})]
-    <h1 class="h1 #EDIT{titre}">#TITRE</h1>
-  </div>
-    <div class="main">	
-  [(#REM) Boite à outils]
-    #SET{texte,#DESCRIPTIF|sinon{#TEXTE|couper{250}}|textebrut}
-    [(#INCLURE{fond=inclure/outils,env,titre,introduction=#GET{texte},url=#URL_RUBRIQUE})]
-  
-  [<div class="#EDIT{texte} texte">(#TEXTE)</div>]
-    </div>
-    [(#REM) Portfolio : album d'images ]
+	<div class="cartouche">
+		[(#LOGO_RUBRIQUE||image_reduire{200,200})]
+		<h1 class="h1 #EDIT{titre}">#TITRE</h1>
+	</div>
+	<div class="main">
+		[(#REM) Boite à outils]
+		#SET{texte,#DESCRIPTIF|sinon{#TEXTE|couper{250}}|textebrut}
+		[(#INCLURE{fond=inclure/outils,env,titre,introduction=#GET{texte},url=#URL_RUBRIQUE})]
 
-    <B_articles>
-      <div id="documents_album">
-      <ul>
-      <BOUCLE_articles(ARTICLES){id_rubrique}{pagination 9}>
-        <li[(#COMPTEUR_BOUCLE|modulo{4}|=={0}|oui) class="clear"]>
-          <a href="#URL_ARTICLE" [ title="(#GET{titre}|attribut_html|couper{80})"]>
-          [<span class="mouseover_cache">(#TITRE|couper{50})</span>]
-          [(#LOGO_ARTICLE
-          |image_passe_partout{160,160}
-          |image_recadre{160,160}
-          |inserer_attribut{class,spip_logos mouseover_visible}
-          |inserer_attribut{alt,[(#TITRE|attribut_html|couper{80})]})]
-          </a>
-        </li>
-      </BOUCLE_articles>
-      </ul>
-      [<p class="pagination">(#PAGINATION)</p>]
-    </div><!--#documents_album-->
-    </B_articles>
+		[<div class="#EDIT{texte} texte">(#TEXTE)</div>]
+	</div>
+	[(#REM) Portfolio : album d'images ]
+
+	<B_articles>
+	<div id="documents_album">
+		<ul>
+			<BOUCLE_articles(ARTICLES){id_rubrique}{pagination 9}>
+			<li [(#COMPTEUR_BOUCLE|modulo{4}|=={0}|oui) class="clear"]>
+				<a href="#URL_ARTICLE" [ title="(#GET{titre}|attribut_html|couper{80})"]>
+					[<span class="mouseover_cache">(#TITRE|couper{50})</span>]
+					[(#LOGO_ARTICLE |image_passe_partout{160,160}
+						|image_recadre{160,160}
+						|inserer_attribut{class,spip_logos mouseover_visible}
+						|inserer_attribut{alt,[(#TITRE|attribut_html|couper{80})]})]
+				</a>
+			</li>
+			</BOUCLE_articles>
+		</ul>
+		[
+		<p class="pagination">(#PAGINATION)</p>
+		]
+	</div>
+	<!--#documents_album-->
+	</B_articles>
 </section>
 </BOUCLE_contenu_rubrique>

@@ -7,18 +7,18 @@
 <BOUCLE_articles(ARTICLES) {id_article} {statut?}>
 <li class="item hentry">
 	<article>
-	    <a href="#URL_ARTICLE" rel="bookmark">
-	        <h3 class="h3 entry-title">#TITRE</h3>
-	        [(#ENV**{logo_article})]
-	    </a>
+		<a href="#URL_ARTICLE" rel="bookmark">
+			<h3 class="h3 entry-title">#TITRE</h3>
+			[(#ENV**{logo_article})]
+		</a>
 	
 	<div class="info-publi">
 	  [(#VAL{donnees_auteurs}|in_array{#GET{afficher}}|non)
-		[<abbr class="published" title="[(#DATE|date_iso)]">(#DATE|affdate_jourcourt)</abbr>]
-	  	]
+			[<abbr class="published" title="[(#DATE|date_iso)]">(#DATE|affdate_jourcourt)</abbr>]
+		]
 		[(#VAL{donnees_auteurs}|in_array{#GET{afficher}}|non)
 			[<span class="sep">, </span><span class="auteurs"><:par_auteur:> (#LESAUTEURS)</span>]
-			]
+		]
 	</div>
 	[<div class="#EDIT{intro} introduction entry-content">(#INTRODUCTION)</div>]
 	<div class="meta-publi">

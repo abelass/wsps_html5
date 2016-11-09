@@ -17,12 +17,12 @@
     <article>
 	<h3 class="h3 entry-title"><a href="#URL_ARTICLE" rel="bookmark">[(#LOGO_ARTICLE_RUBRIQUE||image_reduire{150,100})]#TITRE</a></h3>
 	<div class="info-publi">
-	  [(#VAL{donnees_date}|in_array{#GET{afficher}}|non)
-		[<abbr class="published" title="[(#DATE|date_iso)]">(#DATE|affdate_jourcourt)</abbr>]
-	  	]
+		[(#VAL{donnees_date}|in_array{#GET{afficher}}|non)
+			[<abbr class="published" title="[(#DATE|date_iso)]">(#DATE|affdate_jourcourt)</abbr>]
+		]
 		[(#VAL{donnees_auteurs}|in_array{#GET{afficher}}|non)
 			[<span class="sep">, </span><span class="auteurs"><:par_auteur:> (#LESAUTEURS)</span>]
-			]
+		]
 	</div>
 	[<div class="#EDIT{intro} introduction entry-content">(#INTRODUCTION)</div>]
 	<div class="meta-publi">

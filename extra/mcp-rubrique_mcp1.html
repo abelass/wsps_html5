@@ -1,17 +1,13 @@
-    <INCLURE{fond=extra/inc-articles_rubrique,id_rubrique}/>
+<INCLURE{fond=extra/inc-articles_rubrique,id_rubrique}/>
 
-  [(#REM) Menu de navigation mots-cles ]
-  <B_mots>
-  <div class="liste mots">
-      <h2 class="h2"><:mots_clefs:></h2>
-      <ul class="liste-items">
-      <BOUCLE_mots(MOTS) {id_article ?} {id_rubrique ?}{par num titre, titre}>
-          <li class="item"><a href="#URL_MOT" rel="tag">#TITRE</a></li>
-      </BOUCLE_mots>
-      </ul>
-  </div>
-  </B_mots>
-
-
-
-
+[(#REM) Menu de navigation mots-cles ]
+<B_mots>
+<div class="liste mots">
+	<h2 class="h2"><:mots_clefs:></h2>
+	<ul class="liste-items">
+	<BOUCLE_mots(MOTS) {id_article ?} {id_rubrique ?}{par num titre, titre}>
+		<li class="item"><a href="#URL_MOT" rel="tag">#TITRE</a></li>
+	</BOUCLE_mots>
+	</ul>
+</div>
+</B_mots>

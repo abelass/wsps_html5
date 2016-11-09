@@ -1,4 +1,5 @@
 <composition>
-        <nom>Les articles les plus récents</nom>
-        <description>Affiches les articles les plus récents de tout le site</description>
+	<nom>Les articles les plus récents</nom>
+	<description>Affiches les articles les plus récents de tout le site
+	</description>
 </composition>
