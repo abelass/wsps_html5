@@ -5,8 +5,15 @@
 	<projects>
 	</projects>
 	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.xtext.ui.shared.xtextBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
 	</buildSpec>
 	<natures>
+		<nature>net.vtst.ow.eclipse.less.nature</nature>
+		<nature>org.eclipse.xtext.ui.shared.xtextNature</nature>
 		<nature>com.aptana.projects.webnature</nature>
 	</natures>
 </projectDescription>
