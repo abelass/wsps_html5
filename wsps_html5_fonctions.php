@@ -1,7 +1,7 @@
 <?php
 /**
- * Plugin My Chacra - Pack basique
- * (c) 2012 My Chacra
+ * Plugin Web Simple HTML5 - Pack basique
+ * (c) 2012 Web Simple
  * Licence GNU/GPL
  */
 
@@ -13,7 +13,7 @@ function a_cacher($objet){
 
 	$a_cacher=lire_config('wsps_html5/cacher_site_public');
 
-	$cacher=false;	
+	$cacher=false;
 	if(is_array($a_cacher)){
 		if(in_array($objet,$a_cacher))$cacher=true;
 		}

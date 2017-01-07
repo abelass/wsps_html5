@@ -11,16 +11,16 @@
 	</div>
 	</B_articles_rubrique>
 
-  [(#REM) Menu de navigation mots-cles ]
-  <B_mots>
-  <div class="liste mots">
-      <h2 class="h2"><:mots_clefs:></h2>
-      <ul class="liste-items">
-      <BOUCLE_mots(MOTS) {id_article} {par titre}>
-          <li class="item"><a href="#URL_MOT" rel="tag">#TITRE</a></li>
-      </BOUCLE_mots>
-      </ul>
-  </div>
+	[(#REM) Menu de navigation mots-cles ]
+	<B_mots>
+	<div class="liste mots">
+		<h2 class="h2"><:mots_clefs:></h2>
+		<ul class="liste-items">
+		<BOUCLE_mots(MOTS) {id_article} {par titre}>
+			<li class="item"><a href="#URL_MOT" rel="tag">#TITRE</a></li>
+		</BOUCLE_mots>
+		</ul>
+	</div>
   </B_mots>
 
 </BOUCLE_extra_article>

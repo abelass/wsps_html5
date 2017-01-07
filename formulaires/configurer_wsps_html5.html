@@ -1,83 +1,75 @@
 <div class="formulaire_spip formulaire_configurer formulaire_#FORM">
 
-    <h3 class="titrem"><:wsps_html5:cfg_titre_parametrages:></h3>
+	<h3 class="titrem">
+		<:wsps_html5:cfg_titre_parametrages:>
+	</h3>
 
-    [<p class="reponse_formulaire reponse_formulaire_ok">(#ENV*{message_ok})</p>]
-    [<p class="reponse_formulaire reponse_formulaire_erreur">(#ENV*{message_erreur})</p>]
+	[
+	<p class="reponse_formulaire reponse_formulaire_ok">(#ENV*{message_ok})</p>
+	] [
+	<p class="reponse_formulaire reponse_formulaire_erreur">(#ENV*{message_erreur})</p>
+	]
 
-    <form method="post" action="#ENV{action}">
-    <div>
-        #ACTION_FORMULAIRE{#ENV{action}}
-        <ul>
-            <li class="fieldset">
-                <fieldset>
-                    <legend><:wsps_html5:reglages_interface:></legend>
-                    <ul>
-                    [(#SAISIE{checkbox,cacher_menu,
-                        label=<:wsps_html5:cacher_menus:>,
-                        datas=#ARRAY{
-                            menu_publication,<:icone_publication:>,
-                            menu_squelette,<:icone_squelette:>,
-                            menu_configuration,<:icone_configuration:>,
-                            outils_collaboratifs,<:wsps_html5:icone_outils_collaboratifs:>,
-                            outils_rapides,<:wsps_html5:icone_outils_rapides:>}
-                            })
-                        ]
+	<form method="post" action="#ENV{action}">
+		<div>
+			#ACTION_FORMULAIRE{#ENV{action}}
+			<ul>
+				<li class="fieldset">
+					<fieldset>
+						<legend>
+							<:wsps_html5:reglages_interface:>
+						</legend>
+						<ul>
+							[(#SAISIE{checkbox,cacher_menu, label=
+							<:wsps_html5:cacher_menus:>,
+							datas=#ARRAY{ menu_publication,<:icone_publication:>,
+							menu_squelette,<:icone_squelette:>,
+							menu_configuration,<:icone_configuration:>,
+							outils_collaboratifs,<:wsps_html5:icone_outils_collaboratifs:>,
+							outils_rapides,<:wsps_html5:icone_outils_rapides:>}
+							}) ] [(#SAISIE{selecteur_rubrique,cacher_documents, multiple=oui,
+							label=<:wsps_html5:cacher_documents:>})]
+							
+						</ul>
+					</fieldset>
+					<fieldset>
+						<legend>
+							<:wsps_html5:reglages_site_public:>
+						</legend>
+						<ul>
+							[(#SAISIE{checkbox,cacher_site_public, label=
+							<:wsps_html5:cacher_site_public:>,
+							datas=#ARRAY{ donnees_auteurs,<:wsps_html5:donnees_auteurs:>,
+							donnees_date,<:wsps_html5:donnees_date:>,
+							cacher_boite_outils,<:wsps_html5:cacher_boite_outils:>,
+							}, } ) ] #SET{menus,#VAL{barre_nav/}|find_all_in_path{'/menu_'}}
 
-                    [(#SAISIE{selecteur_rubrique,cacher_documents,
-                        multiple=oui,
-                        label=<:wsps_html5:cacher_documents:>})]  
-                    </ul>
-                </fieldset>
-                <fieldset>
-                    <legend><:wsps_html5:reglages_site_public:></legend>
-                    <ul>
-                    [(#SAISIE{checkbox,cacher_site_public,
-                        label=<:wsps_html5:cacher_site_public:>,
-                        datas=#ARRAY{
-                            donnees_auteurs,<:wsps_html5:donnees_auteurs:>,
-                            donnees_date,<:wsps_html5:donnees_date:>,                         
-                            cacher_boite_outils,<:wsps_html5:cacher_boite_outils:>,
-                            },
-                    
-                            }
-                        )
-                        ]
-                        #SET{menus,#VAL{barre_nav/}|find_all_in_path{'/menu_'}}
-                        
-                        #SET{menus_adapte,#ARRAY{}}
-                        <BOUCLE_menus(DATA){source table, #GET{menus}}>
-                            #SET{c,#CLE|replace{.html,''}}                  
-                            #SET{menus_adapte,#GET{menus_adapte}|array_merge{#ARRAY{#GET{c},#GET{c}|replace{menu_,''}}}}
-                        </BOUCLE_menus>
-                        
-                    [(#SAISIE{selection,menu_barre_nav,
-                        option_intro=<:wsps_html5:choisir_menu:>,
-                        label=<:wsps_html5:menu_barre_nav:>,
-                        datas=#GET{menus_adapte}}) 
-                        ]
-                        
-                    [(#SAISIE{oui_non,affichage_clever_articles_recent,
-                        label=<:wsps_html5:affichage_clever_articles_recent:>,
-                        explication=<:wsps_html5:explication_affichage_clever_articles_recent:>
-                        }) 
-                        ]   
-                        
-                        
-                    [(#SAISIE{selecteur_rubrique,cacher_rubrique_articles_recents,
-                        multiple=oui,
-                        label=<:wsps_html5:cacher_rubrique_articles_recents:>})]      
-                        
-                    [(#SAISIE{selecteur_rubrique,rubrique_accueil,
-                        label=<:wsps_html5:rubrique_accueil:>})]                                              
-                                                
-                    </ul>
-                </fieldset>
-            </li>
-        </ul>
-        
-        <input type="hidden" name="_meta_casier" value="wsps_html5" />
-        <p class="boutons"><span class="image_loading">&nbsp;</span><input type="submit" class="submit" value="<:bouton_enregistrer:>" /></p>
-    </div>
-    </form>
+							#SET{menus_adapte,#ARRAY{}} <BOUCLE_menus (DATA){sourcetable, #GET{menus}}>
+							#SET{c,#CLE|replace{.html,''}}
+							#SET{menus_adapte,#GET{menus_adapte}|array_merge{#ARRAY{#GET{c},#GET{c}|replace{menu_,''}}}}
+							</BOUCLE_menus> [(#SAISIE{selection,menu_barre_nav, option_intro=<:wsps_html5:choisir_menu:>,
+							label=<:wsps_html5:menu_barre_nav:>,
+							datas=#GET{menus_adapte}}) ]
+
+							[(#SAISIE{oui_non,affichage_clever_articles_recent, label=<:wsps_html5:affichage_clever_articles_recent:>,
+							explication=<:wsps_html5:explication_affichage_clever_articles_recent:>
+							}) ]
+
+
+							[(#SAISIE{selecteur_rubrique,cacher_rubrique_articles_recents,
+							multiple=oui, label=<:wsps_html5:cacher_rubrique_articles_recents:>})]
+
+							[(#SAISIE{selecteur_rubrique,rubrique_accueil, label=<:wsps_html5:rubrique_accueil:>})]
+						</ul>
+					</fieldset>
+				</li>
+			</ul>
+
+			<input type="hidden" name="_meta_casier" value="wsps_html5" />
+			<p class="boutons">
+				<span class="image_loading">&nbsp;</span><input type="submit"
+					class="submit" value="<:bouton_enregistrer:>" />
+			</p>
+		</div>
+	</form>
 </div>

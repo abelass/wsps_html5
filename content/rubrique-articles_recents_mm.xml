@@ -1,5 +1,6 @@
 <composition>
-        <nom>Variante multimedia de "Les articles les plus récents"</nom>
+	<nom>Variante multimedia de "Les articles les plus récents"</nom>
 
-        <description>Affiches les articles les plus récents de la rubrique en, tenant compte les dernière publications</description>
+	<description>Affiches les articles les plus récents de la rubrique en,
+		tenant compte les dernière publications</description>
 </composition>

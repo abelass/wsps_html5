@@ -11,16 +11,16 @@
     le document lui-meme, sans lien de telechargement
 -->]
 [(#ENV{mode_force,#MODE}|=={image}|oui)
-    #SET{fichier,#FICHIER}
-    #SET{width,#ENV{width,#LARGEUR}}
-    #SET{height,#ENV{height,#HAUTEUR}}
-    #SET{url,#ENV{lien}}
+	#SET{fichier,#FICHIER}
+	#SET{width,#ENV{width,#LARGEUR}}
+	#SET{height,#ENV{height,#HAUTEUR}}
+	#SET{url,#ENV{lien}}
 ]
 [(#ENV{mode_force,#MODE}|=={image}|non)
-    [(#SET{fichier,[(#LOGO_DOCUMENT|extraire_attribut{src})]})]
-    [(#SET{width,[(#LOGO_DOCUMENT|extraire_attribut{width})]})]
-    [(#SET{height,[(#LOGO_DOCUMENT|extraire_attribut{height})]})]
-    #SET{url,#ENV{lien,#URL_DOCUMENT}}
+	[(#SET{fichier,[(#LOGO_DOCUMENT|extraire_attribut{src})]})]
+	[(#SET{width,[(#LOGO_DOCUMENT|extraire_attribut{width})]})]
+	[(#SET{height,[(#LOGO_DOCUMENT|extraire_attribut{height})]})]
+	#SET{url,#ENV{lien,#URL_DOCUMENT}}
 ][<!--(#REM)
 
 
@@ -30,18 +30,28 @@
 
 [
 (#ENV{width,0}|ou{#ENV{height,0}})
-    #SET{fichier,#GET{fichier}|image_reduire{#ENV{width,0},#ENV{height,0}}}
-    #SET{width,#GET{fichier}|largeur}
-    #SET{height,#GET{fichier}|hauteur}
-    #SET{fichier,#GET{fichier}|extraire_attribut{src}}
+	#SET{fichier,#GET{fichier}|image_reduire{#ENV{width,0},#ENV{height,0}}}
+	#SET{width,#GET{fichier}|largeur}
+	#SET{height,#GET{fichier}|hauteur}
+	#SET{fichier,#GET{fichier}|extraire_attribut{src}}
 ]
 
-<dl class='spip_document_#ID_DOCUMENT spip_documents[ spip_documents_(#ENV{align})][ (#ENV{class})] spip_lien_ok'[
-    style='float:(#ENV{align}|match{left|right});']>
-<dt>[<a href="(#GET{url})"[
-    class="(#ENV{lien_class})"] title='#TITRE'[
-    (#ENV{lien}|?{'',type="#MIME_TYPE"})]>]<img src='#GET{fichier}' width='#GET{width}' height='#GET{height}' alt='#TYPE_DOCUMENT - [(#TAILLE|taille_en_octets|texte_backend)]' />[(#GET{url}|?{</a>})]</dt>[
-<dd class='#EDIT{descriptif} spip_doc_descriptif'[ style='width:(#GET{width}|min{350}|max{120})px;']>(#DESCRIPTIF|PtoBR)[(#NOTES|PtoBR)]</dd>]
+<dl
+	class='spip_document_#ID_DOCUMENT spip_documents[ spip_documents_(#ENV{align})][ (#ENV{class})] spip_lien_ok'
+	[style='float: (#ENV{align']>
+	<dt>
+		[<a href="(#GET{url})" [
+    class="(#ENV{lien_class})"
+			] title='#TITRE' [
+    (#ENV{lien}|?{'',type="#MIME_TYPE"})]>]<img
+			src='#GET{fichier}' width='#GET{width}' height='#GET{height}'
+			alt='#TYPE_DOCUMENT - [(#TAILLE|taille_en_octets|texte_backend)]' />[(#GET{url}|?{
+		</a>})]
+	</dt>
+	[
+	<dd class='#EDIT{descriptif} spip_doc_descriptif'
+		[ style='width: (#GET{width']>(#DESCRIPTIF|PtoBR)[(#NOTES|PtoBR)]</dd>
+	]
 </dl>
 
 </BOUCLE_doc>
