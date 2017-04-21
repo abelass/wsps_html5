@@ -1,0 +1,22 @@
+<BOUCLE_content(SITES){id_syndic}>
+<section>
+
+	<header class="cartouche">
+		<h1 class="#EDIT{nom_site}">[<a href="#URL_SITE">(#LOGO_SITE|image_reduire)</a>]#NOM_SITE</h1>
+	</header>
+	[(#REM) Boite à outils]
+	[(#INCLURE{fond=inclure/outils,env,titre,introduction=[(#INTRODUCTION|textebrut)],url=#URL_SITE})]
+	<div class="main">
+		[<div class="#EDIT{descriptif} chapo">(#DESCRIPTIF)</div>]
+		[<p class="#EDIT{url_site} hyperlien"><a href="#URL_SITE" class="spip_out">(#URL_SITE|couper{80})</a></p>]
+	</div>
+
+	<aside>
+		<INCLURE{fond=liste/syndicarticles,id_syndic,env,ajax} />
+	</aside>
+
+	<footer>
+		[<div class="notes"><hr />(#NOTES)</div>]
+	</footer>
+</section>
+</BOUCLE_content>
