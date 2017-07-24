@@ -21,20 +21,20 @@
 			</h2>
 			<ul class="spip">
 				<BOUCLE_documents_joints (DOCUMENTS) {id_rubrique} {mode=document}
-					{par numtitre, date} {doublons}>
+					{par num titre, date} {doublons}>
 				<li><a href="#URL_DOCUMENT" type="#MIME_TYPE"
 					class="spip_doc[ (#EXTENSION|attribut_html)]"><strong
 						class="#EDIT{titre} titre">[(#TITRE|sinon{[(#FICHIER|basename|couper{80})]})]</strong>
 						<small class="info_document">([<abbr
 							title="<:info_document:> #TYPE_DOCUMENT" class="ext">(#EXTENSION|strtoupper)</abbr> - ]
 							[<span>(#TAILLE|taille_en_octets)</span>])
-					</small></a> 
+					</small></a>
 					[<div class="#EDIT{descriptif} descriptif">(#DESCRIPTIF)</div>]
 				</li>
 				</BOUCLE_documents_joints>
 			</ul>
 		</aside>
-		<!--#documents_joints--> 
+		<!--#documents_joints-->
 		</B_documents_joints>
 	</div>
 </section>
