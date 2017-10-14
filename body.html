@@ -8,11 +8,11 @@
 				(#INCLURE{fond=inclure/nav,env}|navbar_responsive)
 			</div>]
 			<div class="row">
-				<div class="content span8 " id="content">
+				<div class="content col-sm-9" id="content">
 					<INCLURE{fond=breadcrumb/#ENV{type-page},env} />
 					<INCLURE{fond=content/#ENV{type-page},env} />
 				</div>
-				<div class="aside secondary col span3 offset1" id="aside">
+				<div class="aside secondary col-sm-3 offset1" id="aside">
 					<INCLURE{fond=aside/#ENV{type-page},env} />
 					<INCLURE{fond=extra/#ENV{type-page},env} />
 				</div>
