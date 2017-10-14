@@ -3,8 +3,8 @@
 	<header class="cartouche">
 		[(#LOGO_RUBRIQUE||image_reduire{200,200})]
 		<h1 class="h1 #EDIT{titre}">#TITRE</h1>
-	</header>	
-	<div class="main"> 
+	</header>
+	<div class="main">
 	[(#REM) Boite à outils]
 	#SET{texte,#DESCRIPTIF|sinon{#TEXTE|couper{250}}|textebrut}
 	[(#GET{texte}|non)#SET{class,absolute}]
