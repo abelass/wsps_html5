@@ -8,11 +8,12 @@
 		<a href="javascript:;" onclick="centrarVentana('[(#URL_PAGE{imprimer_#ENV{type-page}}|parametre_url{id_rubrique,#ID_RUBRIQUE}|parametre_url{id_article,#ID_ARTICLE})]','Imprimir_documento','scrollbars=yes,resizable=yes','700','470','true')" title="<:imprimirdocumento:version_doc_imprimir:>" style="border:none">[(#CHEMIN{prive/themes/spip/images/imprimer.png}|image_reduire{24}|inserer_attribut{alt,print})]
 		</a>
 	</div>
+	[(#PLUGIN{recommander}|oui)
 	<div class="item recommander">
 		<a title="<:recommander:recommander:> "class="mediabox" href="[(#URL_PAGE{recommander}|parametre_url{url,#ENV{url}}|parametre_url{titre,#ENV{titre}}|parametre_url{texte,#ENV{introduction}})]">
 			[(#CHEMIN{prive/themes/spip/images/mail.png}|image_reduire{25}|inserer_attribut{alt,recommend})]
 		</a>
-	</div>
+	</div>]
 </aside>
 
 <script type="text/javascript">
