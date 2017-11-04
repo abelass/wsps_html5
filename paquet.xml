@@ -3,7 +3,7 @@
 	categorie="squelette"
 	version="1.2.10"
 	etat="stable"
-	compatibilite="[3.0.17;3.1.*]"
+	compatibilite="[3.0.17;3.2.*]"
 	logo="prive/themes/spip/images/wsps_html5-64.png"
 	documentation=""
 >
@@ -23,8 +23,6 @@
 	<necessite nom="nospam" compatibilite="[1.5.13;[" />
 	<necessite nom="socialtags" compatibilite="[1.0.4;[" />
 	<necessite nom="cache_cool" compatibilite="[0.4.1;[" />
-	<necessite nom="article_pdf" compatibilite="[0.4.5;[" />
-	<necessite nom="recommander" compatibilite="[1.0.6;[" />
 	<necessite nom="mailcrypt" compatibilite="[2.4.1;[" />
 	<necessite nom="numero" compatibilite="[2.0.5;[" />
 
