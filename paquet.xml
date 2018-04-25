@@ -1,7 +1,7 @@
 <paquet
 	prefix="wsps_html5"
 	categorie="squelette"
-	version="2.0.6"
+	version="2.0.7"
 	etat="stable"
 	compatibilite="[3.0.17;3.2.*]"
 	logo="prive/themes/spip/images/wsps_html5-64.png"
@@ -18,7 +18,7 @@
 	<necessite nom="compositions" compatibilite="[3.7.0;]" />
 	<necessite nom="edition_directe" compatibilite="[3.2.8;]" />
 	<necessite nom="crayons" compatibilite="[1.16.2;]" />
-	<necessite nom="spipr_dist" compatibilite="[0.4.3;[" />
+	<necessite nom="bootstrap3_dist" compatibilite="[1.0.2;[" />
 	<necessite nom="saisies" compatibilite="[1.31.4;[" />
 	<necessite nom="nospam" compatibilite="[1.5.13;[" />
 	<necessite nom="socialtags" compatibilite="[1.0.4;[" />
