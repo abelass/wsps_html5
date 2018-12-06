@@ -1,5 +1,5 @@
-@import "css/variables.less";
-@import "css/mixins.less";
+@import "css/variables";
+
 #content section {
 	position: relative
 }
@@ -127,9 +127,9 @@ div.socialtags {
 }
 
 .menuder {
-	background-color: @navbarInverseBackground;
+	background-color: $navbar-inverse-bg;
 	ul {
-		background-color: @navbarInverseBackground;
+		background-color: $navbar-inverse-bg;
 	}
 
 	a.daddy {
@@ -144,7 +144,7 @@ div.socialtags {
 
 		a {
 			width: 10em;
-			color: @navbarInverseLinkColor
+			color: $navbar-inverse-link-color
 		}
 	}
 
@@ -154,7 +154,7 @@ div.socialtags {
 }
 
 .menuder li:hover , .menuder li.hover {
-	background-color: @navbarInverseBackground;
+	background-color: $navbar-inverse-bg;
 }
 
 .home {
