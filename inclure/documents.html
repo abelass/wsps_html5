@@ -27,7 +27,7 @@
 	<h2 class="h2"><:medias:titre_documents_joints:></h2>
 	<ul class="liste-items">
 		<BOUCLE_documents_joints(DOCUMENTS) {id_article?}{id_rubrique?} {id_produit ?} {extension !IN gif,jpg,png} {vu=non}{par num titre, date}>
-		<li class="item">#INCLURE{fond=inclure/resume/document,id_document,largeur_logo=25,hauteur_logo=25}</li>
+		<li class="item">#INCLURE{fond=inclure/resume/document,id_document}</li>
 		</BOUCLE_documents_joints>
 	</ul>
 	</section>
