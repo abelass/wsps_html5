@@ -3,8 +3,8 @@
 	#ANCRE_PAGINATION
 	[(#ID_RUBRIQUE|?{<h2 class="h2 invisible"><:articles_rubrique:></h2>,<h2 class="h2 articles_recents"><:derniers_articles:></h2>})]
 	<ul class="liste-items">
-		<BOUCLE_articles(ARTICLES) {id_rubrique} {par num titre}{lang} {pagination 5}>	
-		#INCLURE{fond=inclure/article-resume,id_article}	
+		<BOUCLE_articles(ARTICLES) {id_rubrique} {par rang}{lang} {pagination 5}>
+		#INCLURE{fond=inclure/article-resume,id_article}
 		</BOUCLE_articles>
 	</ul>
 	[<div class="pagination">(#PAGINATION)</div>]
