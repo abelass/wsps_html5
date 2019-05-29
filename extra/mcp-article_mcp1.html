@@ -4,7 +4,7 @@
 	<div class="liste articles">
 		<h2 class="h2"><a href="#URL_RUBRIQUE"><:meme_rubrique:></a></h2>
 		<ul class="liste-items">
-			<BOUCLE_articles_rubrique(ARTICLES) {id_rubrique}{par num titre} {par date}{inverse} {0,10}>
+			<BOUCLE_articles_rubrique(ARTICLES) {id_rubrique}{par rang} {0,10}>
 			<li class="item"><a href="#URL_ARTICLE"[ class="(#EXPOSE)"]>#TITRE</a></li>
 			</BOUCLE_articles_rubrique>
 		</ul>
