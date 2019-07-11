@@ -166,6 +166,26 @@ div.socialtags {
 	}
 }
 
+
+@media screen and (max-width: 800px) {
+
+		ul.traductions  {
+			padding: .375em 0;
+			text-align: left;
+			li.item {
+				width: auto;
+				padding-right: 0;
+				padding-top: 0;
+				padding-bottom: 0;
+			}
+
+			li:not(:last-child) {
+				padding-right: 0;
+				margin-right: 0;
+			}
+		}
+}
+
 @media screen and (max-width: 767px) {
 	h1#logo_site_spip {
 		margin: 0 auto;
