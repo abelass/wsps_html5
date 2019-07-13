@@ -5,22 +5,32 @@
 	position: relative
 }
 
+/* menu traductions */
 ul.traductions {
+	display: flex;
+	justify-content: flex-end;
 	list-style: none;
 	text-align: right;
-	li {
-		display: inline;
-		width: 20%
+
+	li.item {
+		padding: 0;
+		margin: 0.375em;
+		margin-left: 0;
 	}
 
-	li:not(:last-child) {
-		border-right: #BFBFBF 2px solid;
-		padding-right: 2px;
-		margin-right: 2px
+	li:not(:last-child){
+		margin-right: 0.375em;
+		a {
+			padding-right: 0.375em;
+		}
+	}
+
+	li:not(:last-child):after {
+		content: '|';
 	}
 
 	li:last-child {
-		content: ""
+		margin-right: 0
 	}
 }
 
@@ -174,14 +184,8 @@ div.socialtags {
 			text-align: left;
 			li.item {
 				width: auto;
-				padding-right: 0;
 				padding-top: 0;
 				padding-bottom: 0;
-			}
-
-			li:not(:last-child) {
-				padding-right: 0;
-				margin-right: 0;
 			}
 		}
 }
