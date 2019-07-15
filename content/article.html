@@ -78,7 +78,6 @@
 		</div>
 		]
 	</footer>
-
 	<aside>
 		[(#REM) Gestion du portfolio et des documents ]
 		[(#INCLURE{fond=inclure/documents,id_article})] [(#REM) Petition : La
@@ -90,7 +89,8 @@
 		<INCLURE {fond=inclure/forum,
 			id_article,
 			repondre_url=(#PARAMETRES_FORUM|url_reponse_forum),
-			repondre_titre=<:repondre_article:>} /> 
+			repondre_titre=<:repondre_article:>} />
 	</aside>
 </article>
 </BOUCLE_content>
+
