@@ -10,12 +10,12 @@
 <div class="menu menu_rubriques">
 	<h2>#TITRE</h2>
 	<ul>
-	<BOUCLE_rubriques(RUBRIQUES) {id_parent} {par num titre}{!par date}{tout}>
+	<BOUCLE_rubriques(RUBRIQUES) {id_parent} {par num titre titre}{!par date}{tout}>
 		<li>
 			<a href="#URL_RUBRIQUE"[ class="(#EXPOSE)"]>#TITRE</a>
 			<B_sous_rubriques>
 			<ul>
-				<BOUCLE_sous_rubriques(RUBRIQUES) {id_parent} {par num titre}{!par date}{tout}><BOUCLE_test_expose(RUBRIQUES) {id_enfant}{tout}>#EXPOSE{' '}</BOUCLE_test_expose>
+				<BOUCLE_sous_rubriques(RUBRIQUES) {id_parent} {par num titre titre}{!par date}{tout}><BOUCLE_test_expose(RUBRIQUES) {id_enfant}{tout}>#EXPOSE{' '}</BOUCLE_test_expose>
 				<li><a href="#URL_RUBRIQUE"[ class="(#EXPOSE)"]>#TITRE</a><BOUCLE_re(BOUCLE_sous_rubriques)></BOUCLE_re>	</li>
 				</B_test_expose></BOUCLE_sous_rubriques>
 			</ul>
