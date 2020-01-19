@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin My Chacra - Pack basique
- * (c) 2012 My Chacra
+ * (c) 2012 - 2020 My Chacra
  * Licence GNU/GPL
  */
 
@@ -20,7 +20,7 @@ function wsps_html5_ajouter_menus($flux){
 	include_spip('inc/session');
 	$webmestre=session_get('webmestre');
 	if($webmestre!='oui'){
-		$menus_cache=lire_config('wsps_html5/cacher_menu')?lire_config('wsps_html5/cacher_menu'):array();		
+		$menus_cache=lire_config('wsps_html5/cacher_menu')?lire_config('wsps_html5/cacher_menu'):array();
 
 
 		foreach($flux AS $menu=>$conteu){
@@ -28,7 +28,7 @@ function wsps_html5_ajouter_menus($flux){
 				unset($flux[$menu]);
 				}
 			}
-		}	
+		}
 	return $flux;
 }
 
@@ -43,7 +43,7 @@ function wsps_html5_recuperer_fond($flux){
 	if($webmestre!='oui'){
 		// Cacher le formulaire ajouter document et le portfolio si choisit dans la config
 		if($objet=='article' AND $id_objet)$id_rubrique=sql_getfetsel('id_rubrique','spip_articles','id_article='.$id_objet);
-		elseif($objet=='rubrique')$id_rubrique=$id_objet;		
+		elseif($objet=='rubrique')$id_rubrique=$id_objet;
 		$cacher_documents=lire_config('wsps_html5/cacher_documents')?lire_config('wsps_html5/cacher_documents'):array();
 		$rubriques=explode(',',str_replace('rubrique|','',implode(',',$cacher_documents)));
 		if(($fond=='prive/objets/editer/colonne_document' OR $fond=='prive/objets/contenu/portfolio_document.html') AND in_array($id_rubrique,$rubriques)){
@@ -52,10 +52,10 @@ function wsps_html5_recuperer_fond($flux){
 		}
 
 	//	Cacher le menu rubriques dans la colonne navigation si le menu barre nav est choisit
-	if($fond=='inclure/rubriques' AND lire_config('wsps_html5/menu_barre_nav')){	
+	if($fond=='inclure/rubriques' AND lire_config('wsps_html5/menu_barre_nav')){
 		 $flux['texte']='';
 		}
-		//echo $fond;	
+		//echo $fond;
 	return $flux;
 }
 
