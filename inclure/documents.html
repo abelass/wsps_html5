@@ -1,6 +1,6 @@
 [(#REM) Portfolio : album d'images ]
 <B_documents_portfolio>
-<div class="liste documents documents_portfolio">
+<section class="liste documents documents_portfolio">
 	<h2 class="h2"><:medias:info_portfolio:></h2>
 	<BOUCLE_documents_portfolio(DOCUMENTS) {id_article?}{id_rubrique?}{id_produit?}{mode=DOCUMENT}{extension IN png,jpg,gif} {par num titre, date}{doublons}{vu=non}>[
 	<a href="(#FICHIER|image_reduire{1500,*}|extraire_attribut{src})"
