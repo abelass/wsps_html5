@@ -29,6 +29,7 @@
   <utilise nom="multilingue" compatibilite="[1.0.2;[" />
   <utilise nom="shop" compatibilite="[1.5.1;[" />
   <utilise nom="sidr" compatibilite="[ 1.2.4;[" />
+  <utilise nom="zcore" compatibilite="[ 2.6.6;2.*" />
 
   <pipeline nom="autoriser" inclure="wsps_html5_autorisations.php" />
   <pipeline nom="insert_head" inclure="wsps_html5_pipelines.php" />
