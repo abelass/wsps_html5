@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Web Simple HTML5 - Pack basique
- * (c) 2012 Web Simple
+ * (c) 2012 - 2021 Web Simple
  * Licence GNU/GPL
  */
 

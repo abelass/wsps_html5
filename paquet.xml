@@ -3,7 +3,7 @@
   categorie="squelette"
   version="1.2.19"
   etat="stable"
-  compatibilite="[3.0.17;3.2.*]"
+  compatibilite="[3.0.17;3.3.*]"
   logo="prive/themes/spip/images/wsps_html5-64.png"
   documentation=""
 >
@@ -27,9 +27,8 @@
   <necessite nom="numero" compatibilite="[2.0.5;[" />
 
   <utilise nom="multilingue" compatibilite="[1.0.2;[" />
-  <utilise nom="shop" compatibilite="[1.5.1;[" />
   <utilise nom="sidr" compatibilite="[ 1.2.4;[" />
-  <utilise nom="zcore" compatibilite="[ 2.6.6;2.*" />
+  <utilise nom="zcore" compatibilite="[2.8.7;2.*]" />
 
   <pipeline nom="autoriser" inclure="wsps_html5_autorisations.php" />
   <pipeline nom="insert_head" inclure="wsps_html5_pipelines.php" />
