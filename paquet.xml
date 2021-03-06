@@ -1,9 +1,9 @@
 <paquet
 	prefix="wsps_html5"
 	categorie="squelette"
-	version="3.1.3"
+	version="3.1.4"
 	etat="stable"
-	compatibilite="[3.0.17;3.2.*]"
+	compatibilite="[3.0.17;3.3.*]"
 	logo="prive/themes/spip/images/wsps_html5-64.png"
 	documentation=""
 >
