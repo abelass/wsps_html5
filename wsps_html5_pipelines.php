@@ -37,9 +37,9 @@ function wsps_html5_recuperer_fond($flux){
 	include_spip('inc/config');
 	include_spip('inc/session');
 	$fond=$flux['args']['fond'];
-	$objet=$flux['args']['contexte']['objet'];
-	$id_objet=$flux['args']['contexte']['id_objet'];
-	$webmestre=session_get('webmestre');
+	$objet = isset($flux['args']['contexte']['objet']) ? $flux['args']['contexte']['objet'] : '';
+	$id_objet = isset($flux['args']['contexte']['id_objet']) ? $flux['args']['contexte']['id_objet'] : '';
+	$webmestre = session_get('webmestre');
 	if($webmestre!='oui'){
 		// Cacher le formulaire ajouter document et le portfolio si choisit dans la config
 		if($objet=='article' AND $id_objet)$id_rubrique=sql_getfetsel('id_rubrique','spip_articles','id_article='.$id_objet);
