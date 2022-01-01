@@ -1,9 +1,9 @@
 <paquet
 	prefix="wsps_html5"
 	categorie="squelette"
-	version="4.0.3"
+	version="4.0.4"
 	etat="stable"
-	compatibilite="[3.0.17;3.2.*]"
+	compatibilite="[3.0.17;4.0.*]"
 	logo="prive/themes/spip/images/wsps_html5-64.png"
 	documentation=""
 >
@@ -11,7 +11,7 @@
 
 	<nom>Web Simple Pack Start html5</nom>
 
-	<auteur lien='http://websimple.be'>Rainer Müller</auteur>
+	<auteur lien='http://web-simple.eu'>Rainer Müller</auteur>
 
 	<licence>GNU/GPL</licence>
 
