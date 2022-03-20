@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin My Chacra - Pack basique
- * (c) 2012 My Chacra
+ * (c) 2012 - 2022 Web Simple
  * Licence GNU/GPL
  */
 
