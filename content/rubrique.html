@@ -5,10 +5,10 @@
 		[(#LOGO_RUBRIQUE|image_reduire{200,200})]
 		<h1 class="#EDIT{titre}">#TITRE</h1>
 	</header>
-	
+
 	<div class="main">
 	[(#REM) Boite à outils]
-	[(#INCLURE{fond=inclure/outils,env})]        
+	[(#INCLURE{fond=inclure/outils,env})]
 		[<div class="#EDIT{texte} texte">(#TEXTE)</div>]
 		<B_articles>
 		<br class="nettoyeur"/>
@@ -18,25 +18,25 @@
 			</div>
 		</BOUCLE_articles>
 	</div>
-	
+
 	<aside>
 		[(#REM) Gestion du portfolio et des documents ]
 		[(#INCLURE{fond=inclure/documents,id_rubrique})]
-		
+
 		[(#REM) Breves du secteur ]
 		<B_breves>
 		<div class="liste breves">
 			#ANCRE_PAGINATION
 			<h2 class="h2"><:breves:breves:></h2>
 			<ul class="liste-items">
-			<BOUCLE_breves(BREVES) {id_rubrique} {par date}{inverse} {pagination 5}>
+			<BOUCLE_breves(BREVES?) {id_rubrique} {par date}{inverse} {pagination 5}>
 				<li class="item short">#INCLURE{fond=inclure/resume/breve,id_breve}</li>
 			</BOUCLE_breves>
 			</ul>
 			[<div class="pagination">(#PAGINATION)</div>]
 		</div>
 		</B_breves>
-		
+
 	[(#REM) Sites de la rubrique ]
 	<B_sites>
 	<div class="liste sites">
@@ -56,11 +56,11 @@
 		</ul>
 	</div>
 	</B_sites>
-		
+
 		[(#REM) Proposer un site ]
 		#FORMULAIRE_SITE
 	</aside>
-	
+
 	<footer>
 	[<div class="notes"><h2><:info_notes:></h2>(#NOTES)</div>]
 	</footer>
